@@ -9,7 +9,7 @@
 <main class="bg-slate-200">
 	<section class="grid h-screen lg:grid-cols-2">
 		<div class="grid place-content-center bg-blue-500 p-4 text-center">
-			<h1 class="font-pt-sans z-10 mb-2 text-5xl font-bold text-white">Travail</h1>
+			<h1 class="font-pt-sans z-10 mb-2 text-5xl font-bold text-gray-100">Travail</h1>
 			<p
 				class="font-raleway z-[1] translate-y-[-30%] rotate-3 transform rounded-md bg-slate-700 p-2
 				font-light text-white shadow-lg md:text-xl"

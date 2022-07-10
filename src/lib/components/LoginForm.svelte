@@ -36,6 +36,6 @@
 	</fieldset>
 
 	<p class="font-pt-sans mt-4 text-center text-sm text-gray-500">
-		Need an Account? <a href="/" class="text-blue-600">Register Here</a>
+		Need an Account? <a href="/register" class="text-blue-600">Register Here</a>
 	</p>
 </form>
