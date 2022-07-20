@@ -1,9 +1,13 @@
-<script></script>
+<script>
+	const handleLogin = async () => {
+		console.log("logged in");
+	};
+</script>
 
 <form
 	action=""
 	class="rounded-md bg-white p-5 shadow-sm md:p-10"
-	on:submit|preventDefault={() => console.log("logged in")}
+	on:submit|preventDefault={handleLogin}
 >
 	<fieldset class="grid gap-5">
 		<legend class="font-raleway mb-5 text-lg font-semibold text-gray-500">Login Now</legend>

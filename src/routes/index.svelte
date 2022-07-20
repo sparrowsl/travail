@@ -16,6 +16,15 @@
 			>
 				One stop place to get your jobs or hire candidates.
 			</p>
+
+			<!-- Link to about page -->
+			<a
+				href="/about"
+				class="font-raleway mx-auto mt-5 block w-fit rounded-md bg-gray-700
+				px-4 py-2 text-white hover:bg-gray-800 hover:underline"
+			>
+				About Us
+			</a>
 		</div>
 
 		<div class="grid place-content-center">

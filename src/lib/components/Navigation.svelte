@@ -1,61 +1,32 @@
 <script>
 	import { page } from "$app/stores";
+	import Icon from "@iconify/svelte";
+	import NavProfile from "./NavProfile.svelte";
 
 	$: currentPath = $page.url.pathname;
 </script>
 
-<aside class="hidden md:block">
-	<div class="sticky top-0">
-		<nav class="grid min-h-screen place-content-center p-5">
-			<!-- Logo / Brand -->
-			<div class="font-pt-sans py-5 text-3xl text-gray-700 hover:text-gray-800">Travail 💼</div>
+<!-- <aside class="hidden md:block"> -->
+<header class="sticky top-0 bg-white shadow">
+	<nav class="container mx-auto flex items-center justify-between">
+		<!-- Logo / Brand -->
+		<div class="font-pt-sans py-5 text-3xl text-gray-700 hover:text-gray-800">Travail 💼</div>
 
-			<ul class="grid gap-5">
-				<li
-					class="font-raleway text-gray-700 hover:font-bold"
-					class:active={currentPath === "/feed"}
-				>
-					<a href="/feed">
-						<span>Home</span>
-					</a>
-				</li>
+		<!-- Menu items -->
+		<div class="flex items-center gap-24">
+			<div class="flex gap-5">
+				<a href="/home" class="font-raleway text-gray-700" class:active={currentPath === "/home"}>
+					<span>Home</span>
+				</a>
+				<a href="/user/notifications" class="font-raleway text-gray-700">
+					<span>Notifications</span>
+				</a>
+				<a href="/about" class="font-raleway text-gray-700">
+					<span>About</span>
+				</a>
+			</div>
 
-				<li
-					class="font-raleway text-gray-700 hover:font-bold"
-					class:active={currentPath === "/feed/profile"}
-				>
-					<a href="/feed/profile">
-						<span>Profile</span>
-					</a>
-				</li>
-
-				<li
-					class="font-raleway text-gray-700 hover:font-bold"
-					class:active={currentPath === "/feed/notifications"}
-				>
-					<a href="/feed/notifications">
-						<span>Notifications</span>
-					</a>
-				</li>
-
-				<li
-					class="font-raleway text-gray-700 hover:font-bold"
-					class:active={currentPath === "/feed/settings"}
-				>
-					<a href="/feed/settings">
-						<span>Settings</span>
-					</a>
-				</li>
-
-				<li
-					class="font-raleway text-gray-700 hover:font-bold"
-					class:active={currentPath === "/feed/about"}
-				>
-					<a href="/feed/about">
-						<span>About</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
-</aside>
+			<NavProfile />
+		</div>
+	</nav>
+</header>
