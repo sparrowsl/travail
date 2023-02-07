@@ -1,8 +1,18 @@
 import { json } from "@sveltejs/kit";
+import { nanoid } from "nanoid";
+import prisma from "../../../lib/utils/prisma";
 
 /** @type {import('./$types').RequestHandler} */
 export async function POST({ request }) {
 	const { email, password } = await request.json();
-	console.log({ email, password });
-	return json({});
+
+	const user = await prisma.user.create({
+		data: {
+			email,
+			password,
+			fullname: "John Doe",
+			id: nanoid()
+		}
+	});
+	return json(user);
 }
