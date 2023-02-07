@@ -10,7 +10,7 @@
 <header class="sticky top-0 bg-white shadow">
 	<nav class="container mx-auto flex items-center justify-between">
 		<!-- Logo / Brand -->
-		<div class="font-pt-sans py-5 text-3xl text-gray-700 hover:text-gray-800">Travail 💼</div>
+		<div class="py-5 font-pt-sans text-3xl text-gray-700 hover:text-gray-800">Travail 💼</div>
 
 		<!-- Menu items -->
 		<div class="flex items-center gap-24">
