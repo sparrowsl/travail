@@ -1,6 +1,6 @@
 import { json } from "@sveltejs/kit";
 import { nanoid } from "nanoid";
-import prisma from "../../../lib/utils/prisma";
+import prisma from "$lib/server/prisma.js";
 
 /** @type {import('./$types').RequestHandler} */
 export async function POST({ request }) {
@@ -11,8 +11,8 @@ export async function POST({ request }) {
 			email,
 			password,
 			fullname: "John Doe",
-			id: nanoid()
-		}
+			id: nanoid(),
+		},
 	});
 	return json(user);
 }

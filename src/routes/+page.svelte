@@ -1,10 +1,6 @@
 <script>
-	import LoginForm from "../lib/components/LoginForm.svelte";
+	import LoginForm from "$lib/components/LoginForm.svelte";
 </script>
-
-<svelte:head>
-	<title>Travail - Login</title>
-</svelte:head>
 
 <main class="bg-slate-200">
 	<section class="grid h-screen lg:grid-cols-2">
