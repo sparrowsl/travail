@@ -8,7 +8,7 @@
 	const login = async () => {
 		const res = await fetch("/api/login", {
 			method: "POST",
-			body: JSON.stringify({ email, password })
+			body: JSON.stringify({ email, password }),
 		});
 		const data = await res.json();
 		console.log(data);
@@ -34,12 +34,10 @@
 			<Input type="password" placeholder="password" name="password" bind:value={password} />
 		</div>
 
-		<Button type="submit" classes="bg-gray-700 text-white hover:bg-gray-800 rounded-full">
-			Login
-		</Button>
+		<Button type="submit" classes="bg-gray-700 text-white hover:bg-gray-800 rounded-full">Login</Button>
 	</fieldset>
 
-	<p class="mt-4 text-center font-pt-sans text-sm text-gray-500">
+	<p class="mt-4 text-center font-ptsans text-sm text-gray-500">
 		Need an Account? <a href="/register" class="text-blue-600">Register Here</a>
 	</p>
 </form>

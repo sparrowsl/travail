@@ -5,7 +5,7 @@
 <main class="bg-slate-200">
 	<section class="grid h-screen lg:grid-cols-2">
 		<div class="grid place-content-center bg-blue-500 p-4 text-center">
-			<h1 class="z-10 mb-6 font-pt-sans text-5xl font-bold text-gray-100">Travail 💼</h1>
+			<h1 class="z-10 mb-6 font-ptsans text-5xl font-bold text-gray-100">Travail 💼</h1>
 			<p
 				class="font-raleway z-[1] rotate-6 transform rounded-md bg-slate-700 p-2
 				font-light text-white shadow-lg md:text-xl"

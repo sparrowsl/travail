@@ -1,8 +1,8 @@
 <aside class="hidden lg:block">
-	<div class="sticky top-0 ">
+	<div class="sticky top-0">
 		<div class="grid h-screen place-content-center gap-7">
 			<section class="grid gap-4">
-				<h2 class="font-pt-sans text-xl text-gray-600">Trends for you</h2>
+				<h2 class="font-ptsans text-xl text-gray-600">Trends for you</h2>
 
 				<ul class="grid gap-3">
 					<li class="animate-pulse rounded-full bg-gray-200 px-6 py-2" />
@@ -16,7 +16,7 @@
 			</section>
 
 			<section class="grid gap-4">
-				<h2 class="font-pt-sans text-xl text-gray-600">Companies to follow</h2>
+				<h2 class="font-ptsans text-xl text-gray-600">Companies to follow</h2>
 
 				<ul class="grid gap-3">
 					<li class="animate-pulse rounded-full bg-gray-200 px-6 py-2" />

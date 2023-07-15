@@ -5,7 +5,12 @@ import { presetForms } from "@julr/unocss-preset-forms";
 export default defineConfig({
 	presets: [
 		presetForms(),
-		presetIcons(),
+		presetIcons({
+			extraProperties: {
+				display: "inline-block",
+				"vertical-align": "middle",
+			},
+		}),
 		presetUno(),
 		presetWebFonts({
 			fonts: {

@@ -55,21 +55,21 @@
 					/>
 				</div>
 
-				<p class="font-pt-sans text-sm text-gray-600">
+				<p class="font-ptsans text-sm text-gray-600">
 					<input type="checkbox" name="terms" id="" class="" bind:checked={tac} />
 					<span> You accept our Terms &amp; Conditions and Privacy Policy </span>
 				</p>
 
 				<button
 					type="submit"
-					class="block rounded-full bg-gray-700 p-2 font-pt-sans font-semibold
+					class="block rounded-full bg-gray-700 p-2 font-ptsans font-semibold
       text-white hover:bg-gray-800"
 				>
 					Register
 				</button>
 			</fieldset>
 
-			<p class="mt-4 text-center font-pt-sans text-sm text-gray-500">
+			<p class="mt-4 text-center font-ptsans text-sm text-gray-500">
 				Already have an Account? <a href="/" class="text-blue-600">Login Here</a>
 			</p>
 		</form>

@@ -1,6 +1,5 @@
 <script>
 	import { page } from "$app/stores";
-	import Icon from "@iconify/svelte";
 	import NavProfile from "./NavProfile.svelte";
 
 	$: currentPath = $page.url.pathname;
@@ -10,7 +9,7 @@
 <header class="sticky top-0 bg-white shadow">
 	<nav class="container mx-auto flex items-center justify-between">
 		<!-- Logo / Brand -->
-		<div class="py-5 font-pt-sans text-3xl text-gray-700 hover:text-gray-800">Travail 💼</div>
+		<div class="py-5 font-ptsans text-3xl text-gray-700 hover:text-gray-800">Travail 💼</div>
 
 		<!-- Menu items -->
 		<div class="flex items-center gap-24">
