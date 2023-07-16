@@ -1,30 +1,41 @@
 <script>
 	import { page } from "$app/stores";
-	import NavProfile from "./Header.svelte";
+
+	const links = [
+		{ name: "Dashboard", href: "/dashboard", icon: "i-ic:baseline-dashboard" },
+		{ name: "Properties", href: "/properties", icon: "i-mdi:home-city" },
+		{ name: "Agents", href: "/agents", icon: "i-mdi:people" },
+		{ name: "Reviews", href: "/reviews", icon: "i-ant-design:star-outlined" },
+		{ name: "Messages", href: "/messages", icon: "i-mdi:chat-outline" },
+		{ name: "Profile", href: "/profile", icon: "i-mdi:account-circle-outline" },
+		// { name: "Logout", href: "/logout", icon: "i-ant-design:logout-outlined" },
+	];
 
 	$: currentPath = $page.url.pathname;
 </script>
 
-<aside class="sticky top-0 bg-white shadow">
-	<nav class="container mx-auto flex items-center justify-between">
+<aside class="h-screen bg-white w-max">
+	<nav class="">
 		<!-- Logo / Brand -->
-		<div class="py-5 font-ptsans text-3xl text-gray-700 hover:text-gray-800">Travail 💼</div>
+		<a href="/dashboard" class="p-7 block font-ptsans text-2xl text-gray-800">Travail💼</a>
 
 		<!-- Menu items -->
-		<div class="flex items-center gap-24">
-			<div class="flex gap-5">
-				<a href="/home" class="font-raleway text-gray-700" class:active={currentPath === "/home"}>
-					<span>Home</span>
-				</a>
-				<a href="/user/notifications" class="font-raleway text-gray-700">
-					<span>Notifications</span>
-				</a>
-				<a href="/about" class="font-raleway text-gray-700">
-					<span>About</span>
-				</a>
-			</div>
-
-			<NavProfile />
-		</div>
+		<ul class="flex flex-col font-raleway text-sm py-2 px-4">
+			{#each links as { name, href, icon } (name)}
+				<li
+					class="{currentPath === href &&
+						'bg-blue-500 text-white'} flex gap-3 items-center text-gray-500 rounded-md p-3"
+				>
+					<i class="{icon} text-2xl" />
+					<a {href} class="font-bold tracking-wider w-full">{name}</a>
+				</li>
+			{/each}
+			<form action="/logout" method="POST" class="text-gray-500 rounded-md">
+				<button class="flex gap-2 items-center p-3">
+					<i class="i-ant-design:logout-outlined text-2xl" />
+					<span class="font-bold tracking-wider w-full">Logout</span>
+				</button>
+			</form>
+		</ul>
 	</nav>
 </aside>
