@@ -1,12 +1,11 @@
 <script>
 	import { page } from "$app/stores";
-	import NavProfile from "./NavProfile.svelte";
+	import NavProfile from "./Header.svelte";
 
 	$: currentPath = $page.url.pathname;
 </script>
 
-<!-- <aside class="hidden md:block"> -->
-<header class="sticky top-0 bg-white shadow">
+<aside class="sticky top-0 bg-white shadow">
 	<nav class="container mx-auto flex items-center justify-between">
 		<!-- Logo / Brand -->
 		<div class="py-5 font-ptsans text-3xl text-gray-700 hover:text-gray-800">Travail 💼</div>
@@ -28,4 +27,4 @@
 			<NavProfile />
 		</div>
 	</nav>
-</header>
+</aside>

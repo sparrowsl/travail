@@ -1,9 +1,9 @@
 <script>
-	import Navigation from "$lib/components/Navigation.svelte";
+	import Sidebar from "$lib/components/Sidebar.svelte";
 </script>
 
 <div class="min-h-screen bg-gray-200">
-	<Navigation />
+	<Sidebar />
 	<main class="">
 		<slot />
 	</main>
