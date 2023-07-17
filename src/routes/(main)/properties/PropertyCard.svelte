@@ -2,7 +2,7 @@
 	import Image from "$lib/components/Image.svelte";
 </script>
 
-<figure class="bg-white/20 p-2">
+<figure class="bg-white/30 p-2 rounded">
 	<Image src="/house.jpeg" class="w-full h-50 bg-contain object-cover rounded-md" />
 	<figcaption class="py-5">
 		<div class="flex justify-between gap-5 mb-2">

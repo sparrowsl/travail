@@ -23,8 +23,9 @@
 		<ul class="flex flex-col font-raleway text-sm py-2 px-4">
 			{#each links as { name, href, icon } (name)}
 				<li
-					class="{currentPath === href &&
-						'bg-blue-500 text-white'} flex gap-3 items-center text-gray-500 rounded-md p-3"
+					class="{currentPath === href
+						? 'bg-accent'
+						: 'text-gray-500 hover:bg-gray/10'} flex gap-3 items-center rounded-md p-3"
 				>
 					<i class="{icon} text-2xl" />
 					<a {href} class="font-bold tracking-wider w-full">{name}</a>
