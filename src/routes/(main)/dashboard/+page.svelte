@@ -1,5 +1,6 @@
 <script>
 	import PieChartCard from "./PieChartCard.svelte";
+	import TotalRevenue from "./TotalRevenue.svelte";
 
 	const charts = [
 		{
@@ -54,7 +55,7 @@
 </script>
 
 <article>
-	<h1 class="text-xl font-semibold text-gray-700 ml-3">Dashboard</h1>
+	<h1 class="text-xl font-semibold text-gray-700">Dashboard</h1>
 
 	<!-- Pie Charts -->
 	<section class="my-5 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -62,4 +63,7 @@
 			<PieChartCard {title} {value} {data} />
 		{/each}
 	</section>
+
+	<!-- Total Revenue -->
+	<TotalRevenue />
 </article>

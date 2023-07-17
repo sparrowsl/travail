@@ -1,6 +1,6 @@
 <script>
-	import Chart from "chart.js/auto";
 	import { onMount } from "svelte";
+	import { ArcElement, Chart, DoughnutController } from "chart.js";
 
 	export let title = "";
 	export let value = 0;
@@ -10,10 +10,11 @@
 	/** @type {HTMLCanvasElement} */
 	let element;
 	onMount(() => {
+		Chart.register(DoughnutController, ArcElement);
 		new Chart(element, {
 			type: "doughnut",
 			data,
-		});
+		}).resize(90, 90);
 	});
 </script>
 
@@ -28,6 +29,6 @@
 
 <style>
 	canvas {
-		height: 90px !important;
+		height: 90px;
 	}
 </style>
