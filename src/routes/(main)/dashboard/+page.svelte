@@ -1,5 +1,6 @@
 <script>
 	import PieChartCard from "./PieChartCard.svelte";
+	import PropertyReferrals from "./PropertyReferrals.svelte";
 	import TotalRevenue from "./TotalRevenue.svelte";
 
 	const charts = [
@@ -64,6 +65,9 @@
 		{/each}
 	</section>
 
-	<!-- Total Revenue -->
-	<TotalRevenue />
+	<!-- Total Revenue and referrals graph -->
+	<div class="flex flex-col md:flex-row gap-5">
+		<TotalRevenue />
+		<PropertyReferrals />
+	</div>
 </article>

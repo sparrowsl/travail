@@ -45,8 +45,8 @@
 	});
 </script>
 
-<section class="bg-white p-5 rounded-md">
-	<div class="flex justify-between items-center">
+<section class="p-5 basis-full bg-white rounded-md">
+	<div class="flex justify-between items-center mb-7">
 		<h3 class="font-semibold text-gray-700 text-lg">Total Revenue</h3>
 
 		<div class="flex items-center gap-5">
@@ -70,7 +70,7 @@
 <style>
 	canvas {
 		margin-top: 2 em;
-		height: 30rem !important;
+		/* height: 30rem !important; */
 		width: 100% !important;
 	}
 </style>
