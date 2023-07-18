@@ -14,7 +14,7 @@
 		new Chart(element, {
 			type: "doughnut",
 			data,
-		}).resize(90, 90);
+		});
 	});
 </script>
 
@@ -23,12 +23,13 @@
 		<p class="text-gray-600 text-sm">{title}</p>
 		<h3 class="text-2xl font-ptsans text-gray-800">{value}</h3>
 	</div>
+
 	<!-- Chart plot -->
 	<canvas bind:this={element} />
 </div>
 
 <style>
 	canvas {
-		height: 90px;
+		height: 90px !important;
 	}
 </style>

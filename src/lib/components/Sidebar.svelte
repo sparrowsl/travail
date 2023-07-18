@@ -11,7 +11,7 @@
 		// { name: "Logout", href: "/logout", icon: "i-ant-design:logout-outlined" },
 	];
 
-	$: currentPath = $page.url.pathname;
+	$: currentPath = `/${$page.url.pathname.split("/")[1]}`;
 </script>
 
 <aside class="h-screen bg-white w-max">

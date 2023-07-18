@@ -8,7 +8,7 @@
 	];
 </script>
 
-<section class="p-5 flex flex-col basis-full max-w-md justify-evenly bg-white rounded-md">
+<section class="p-5 flex flex-col basis-full lg:max-w-md justify-evenly bg-white rounded-md">
 	<h3 class="font-semibold text-gray-700 text-lg">Property Referrals</h3>
 
 	{#each referrals as { name, percentage } (name)}
