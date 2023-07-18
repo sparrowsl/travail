@@ -3,6 +3,6 @@
 	export let type = "submit";
 </script>
 
-<button {type} class="{$$props.class} block p-2 font-ptsans font-semibold" on:click>
+<button {type} class="{$$props.class} block p-2 font-ptsans font-semibold rounded" on:click>
 	<slot>Click me</slot>
 </button>
