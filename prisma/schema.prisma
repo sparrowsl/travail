@@ -11,8 +11,26 @@ datasource db {
 }
 
 model User {
-  id       String @id
-  fullname String
-  email    String @unique
-  password String
+  id         String     @id @unique
+  name       String
+  email      String     @unique
+  avatar     String
+  password   String
+  properties Property[]
+
+  @@map("users")
+}
+
+model Property {
+  id          String  @id @unique
+  title       String
+  description String
+  type        String
+  location    String
+  photo       String
+  price       Int
+  user        User?   @relation(fields: [creator], references: [email])
+  creator     String?
+
+  @@map("properties")
 }
