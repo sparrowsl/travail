@@ -29,6 +29,7 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "^5.0.0",
-		"chart.js": "^4.3.0"
+		"chart.js": "^4.3.0",
+		"zod": "^3.21.4"
 	}
 }

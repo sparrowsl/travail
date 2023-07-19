@@ -22,7 +22,4 @@ export default defineConfig({
 	extractors: [extractorSvelte()],
 	transformers: [transformerVariantGroup()],
 	shortcuts: { "bg-accent": "bg-blue-500 text-white" },
-	// .active {
-	// 	@apply font-bold text-gray-900;
-	// }
 });
