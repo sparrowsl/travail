@@ -1,4 +1,5 @@
 import { redirect } from "@sveltejs/kit";
+import argon2 from "argon2";
 import { loginSchema } from "$lib/utils/schemas.js";
 import prisma from "$lib/server/prisma.js";
 
@@ -22,9 +23,12 @@ export const actions = {
 
 		const user = await prisma.user.findUnique({
 			where: { email: result.email },
-			select: { password: true, id: true },
+			select: { id: true, password: true },
 		});
-		if (!user) return { errors: { message: "Invalid email and password!!, try again" } };
+
+		if (!user || !(await argon2.verify(user.password, result.password))) {
+			return { errors: { message: "Invalid email and password!!, try again" } };
+		}
 
 		cookies.set("session", user.id, {
 			path: "/",

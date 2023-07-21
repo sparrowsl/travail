@@ -1,5 +1,6 @@
 import { redirect } from "@sveltejs/kit";
 import { nanoid } from "nanoid";
+import argon2 from "argon2";
 import prisma from "$lib/server/prisma.js";
 import { registerSchema } from "$lib/utils/schemas.js";
 
@@ -25,7 +26,7 @@ export const actions = {
 			data: {
 				id: nanoid(),
 				email: result.email,
-				password: result.password,
+				password: await argon2.hash(result.password),
 				name: result.name,
 			},
 		});
