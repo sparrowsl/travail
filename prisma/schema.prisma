@@ -29,8 +29,8 @@ model Property {
   location    String
   photo       String
   price       Int
-  user        User?   @relation(fields: [creator], references: [email])
-  creator     String?
+  user        User?   @relation(fields: [userId], references: [id])
+  userId      String?
 
   @@map("properties")
 }

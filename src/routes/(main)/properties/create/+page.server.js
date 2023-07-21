@@ -1,4 +1,8 @@
+import { nanoid } from "nanoid";
+import prisma from "$lib/server/prisma.js";
 import { createPropertySchema } from "$lib/utils/schemas.js";
+import { uploadfile } from "$lib/utils/uploadFile.js";
+import { redirect } from "@sveltejs/kit";
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({}) {}
@@ -16,6 +20,19 @@ export const actions = {
 			return { errors };
 		}
 
-		console.log(result);
+		const property = await prisma.property.create({
+			data: {
+				id: nanoid(),
+				title: result.name,
+				location: result.location,
+				description: result.description,
+				price: parseInt(result.price),
+				photo: await uploadfile(result.photo),
+				type: result.type.toString(),
+				userId: result.id,
+			},
+		});
+
+		throw redirect(307, "/properties");
 	},
 };

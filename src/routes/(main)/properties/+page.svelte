@@ -1,5 +1,8 @@
 <script>
 	import PropertyCard from "./PropertyCard.svelte";
+
+	/** @type {import("./$types").ActionData} */
+	export let data;
 </script>
 
 <article>
@@ -12,8 +15,8 @@
 	</div>
 
 	<section class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl">
-		{#each { length: 5 } as _}
-			<PropertyCard />
+		{#each data.properties as property (property.id)}
+			<PropertyCard {property} />
 		{/each}
 	</section>
 </article>

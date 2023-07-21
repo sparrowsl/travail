@@ -1,4 +1,5 @@
 <script>
+	import { page } from "$app/stores";
 	import { enhance } from "$app/forms";
 	import Button from "$lib/components/Button.svelte";
 	import Input from "$lib/components/Input.svelte";
@@ -8,7 +9,8 @@
 
 	/** @type {import("./$types").ActionData} */
 	export let form;
-	$: console.log(form?.errors);
+
+	// $: console.log($page.data.user.id);
 </script>
 
 <h1 class="text-xl font-semibold text-gray-700">Add a Property</h1>
@@ -21,6 +23,7 @@
 	use:enhance
 >
 	<fieldset class="grid gap-7">
+		<Input type="hidden" name="id" value={$page.data.user.id} />
 		<label for="" class="">
 			<span class="text-sm text-gray-700 mb-2 block">Enter property name</span>
 			<Input name="name" />
