@@ -1,6 +1,10 @@
 <script>
+	import { enhance } from "$app/forms";
 	import Button from "$lib/components/Button.svelte";
 	import Input from "$lib/components/Input.svelte";
+
+	/** @type {import("./$types").ActionData}*/
+	export let form;
 </script>
 
 <main class="">
@@ -12,18 +16,27 @@
 			</p>
 		</div>
 
-		<form action="" method="POST" class="p-5 shadow-sm md:p-10 grid place-content-center">
+		<form action="/?/login" method="POST" class="p-5 shadow-sm md:p-10 grid place-content-center" use:enhance>
+			{#if form?.errors?.message}
+				<p class="text-sm bg-red/20 text-red p-1 font-ptsans mb-2">{form.errors?.message}</p>
+			{/if}
 			<fieldset class="grid gap-5">
 				<legend class="mb-5 text-lg font-semibold text-gray-500">Login Now</legend>
 
-				<label for="" class="block text-sm text-gray-500">
+				<label for="email" class="block text-sm text-gray-500">
 					<span>Email</span>
-					<Input type="email" placeholder="john@gmail.com" name="email" />
+					<Input type="email" placeholder="john@gmail.com" name="email" id="email" />
+					{#if form?.errors?.email}
+						<small class="text-red-500 block">{form.errors.email[0]}</small>
+					{/if}
 				</label>
 
-				<label for="" class="block text-sm text-gray-500">
+				<label for="password" class="block text-sm text-gray-500">
 					<span>Password</span>
-					<Input type="password" placeholder="password" name="password" />
+					<Input type="password" placeholder="password" name="password" id="password" />
+					{#if form?.errors?.password}
+						<small class="text-red-500 block">{form.errors.password[0]}</small>
+					{/if}
 				</label>
 
 				<Button class="bg-gray-700 text-white hover:bg-gray-800 rounded-full">Login</Button>
