@@ -1,6 +1,8 @@
+import { redirect } from "@sveltejs/kit";
+
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ locals }) {
-	console.log(locals.user);
+	if (!locals.user) throw redirect(307, "/");
 
 	return { user: locals.user };
 }
