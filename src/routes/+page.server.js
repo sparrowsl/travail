@@ -37,7 +37,7 @@ export const actions = {
 	},
 
 	logout: async ({ cookies }) => {
-		cookies.set("session", "", { path: "/" });
+		cookies.set("session", "", { path: "/", expires: new Date(0) });
 		throw redirect(307, "/");
 	},
 };
