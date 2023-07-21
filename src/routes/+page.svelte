@@ -14,14 +14,14 @@
 
 		<form action="" method="POST" class="p-5 shadow-sm md:p-10 grid place-content-center">
 			<fieldset class="grid gap-5">
-				<legend class=" mb-5 text-lg font-semibold text-gray-500">Login Now</legend>
+				<legend class="mb-5 text-lg font-semibold text-gray-500">Login Now</legend>
 
-				<label for="" class=" block text-sm text-gray-500">
+				<label for="" class="block text-sm text-gray-500">
 					<span>Email</span>
 					<Input type="email" placeholder="john@gmail.com" name="email" />
 				</label>
 
-				<label for="" class=" block text-sm text-gray-500">
+				<label for="" class="block text-sm text-gray-500">
 					<span>Password</span>
 					<Input type="password" placeholder="password" name="password" />
 				</label>

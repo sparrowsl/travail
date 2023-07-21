@@ -29,7 +29,9 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "^5.0.0",
+		"argon2": "^0.30.3",
 		"chart.js": "^4.3.0",
+		"nanoid": "^4.0.2",
 		"zod": "^3.21.4"
 	}
 }

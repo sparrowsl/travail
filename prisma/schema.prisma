@@ -14,7 +14,7 @@ model User {
   id         String     @id @unique
   name       String
   email      String     @unique
-  avatar     String
+  avatar     String     @default("https://robohash.org/johndoe")
   password   String
   properties Property[]
 

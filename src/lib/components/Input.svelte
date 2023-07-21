@@ -19,6 +19,7 @@
 	{id}
 	{min}
 	on:input={(e) => (value = e.target.value)}
+	on:change
 	class="{$$props.class} font-raleway block {type !== 'checkbox' &&
 		'w-full'} border-gray/50 rounded text-gray-700"
 />
