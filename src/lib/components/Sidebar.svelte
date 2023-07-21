@@ -1,4 +1,5 @@
 <script>
+	import { enhance } from "$app/forms";
 	import { page } from "$app/stores";
 
 	const links = [
@@ -31,7 +32,7 @@
 					<a {href} class="font-bold tracking-wider w-full">{name}</a>
 				</li>
 			{/each}
-			<form action="/logout" method="POST" class="text-gray-500 rounded-md">
+			<form action="/?/logout" method="POST" class="text-gray-500 rounded-md" use:enhance>
 				<button class="flex gap-2 items-center p-3">
 					<i class="i-ant-design:logout-outlined text-2xl" />
 					<span class="font-bold tracking-wider w-full">Logout</span>
