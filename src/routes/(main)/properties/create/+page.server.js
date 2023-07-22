@@ -20,7 +20,7 @@ export const actions = {
 			return { errors };
 		}
 
-		const property = await prisma.property.create({
+		await prisma.property.create({
 			data: {
 				id: nanoid(),
 				title: result.name,

@@ -1,10 +1,11 @@
 export interface Property {
-	id: String;
-	title: String;
-	description: String;
-	type: String;
-	location: String;
-	photo: String;
-	price: Number;
-	userId: String | null;
+	id: string;
+	title: string;
+	description: string;
+	type: string;
+	location: string;
+	photo: string;
+	price: number;
+	userId: string | null;
+	user?: any;
 }

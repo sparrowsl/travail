@@ -1,6 +1,7 @@
 <script>
 	import PropertyCard from "./PropertyCard.svelte";
 
+	/** @type {import("./$types").PageData} */
 	export let data;
 </script>
 

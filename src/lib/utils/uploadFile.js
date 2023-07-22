@@ -17,7 +17,7 @@ export async function uploadfile(file) {
 	const filePath = `${nanoid()}.webp`;
 
 	await sharp(await file.arrayBuffer())
-		.resize({ height: 250, width: 300 })
+		// .resize({ height: 250, width: 300 })
 		.toFile(uploadPath + filePath);
 
 	return filePath;

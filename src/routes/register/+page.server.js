@@ -24,6 +24,9 @@ export const actions = {
 			return { errors };
 		}
 
+		const emailExist = await prisma.user.findUnique({ where: { email: result.email } });
+		if (emailExist) return { errors: { email: ["Email already exists"] } };
+
 		const user = await prisma.user.create({
 			data: {
 				id: nanoid(),
@@ -33,7 +36,7 @@ export const actions = {
 			},
 		});
 
-		if (!user) return { errors: { message: "Email already exists, could not create account!!" } };
+		if (!user) return { errors: { message: "Could not create account!!" } };
 
 		const { password, ...userWithoutPassword } = user;
 
