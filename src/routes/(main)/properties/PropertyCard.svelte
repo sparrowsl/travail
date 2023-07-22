@@ -1,6 +1,7 @@
 <script>
 	import Image from "$lib/components/Image.svelte";
 
+	/** @type {import("$lib/types.js").Property} */
 	export let property;
 </script>
 

@@ -1,5 +1,6 @@
 import { redirect } from "@sveltejs/kit";
 import argon2 from "argon2";
+import jwt from "jsonwebtoken";
 import { loginSchema } from "$lib/utils/schemas.js";
 import prisma from "$lib/server/prisma.js";
 
@@ -23,14 +24,18 @@ export const actions = {
 
 		const user = await prisma.user.findUnique({
 			where: { email: result.email },
-			select: { id: true, password: true },
+			select: { id: true, password: true, email: true, name: true, avatar: true },
 		});
 
 		if (!user || !(await argon2.verify(user.password, result.password))) {
 			return { errors: { message: "Invalid email and password!!, try again" } };
 		}
 
-		cookies.set("session", user.id, {
+		const { password, ...userWithoutPassword } = user;
+
+		const payload = jwt.sign(userWithoutPassword, "secretOrPrivateKey");
+
+		cookies.set("session", payload, {
 			path: "/",
 			httpOnly: true,
 			sameSite: "strict",

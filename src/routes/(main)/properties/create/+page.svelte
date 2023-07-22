@@ -9,8 +9,6 @@
 
 	/** @type {import("./$types").ActionData} */
 	export let form;
-
-	// $: console.log($page.data.user.id);
 </script>
 
 <h1 class="text-xl font-semibold text-gray-700">Add a Property</h1>

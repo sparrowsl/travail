@@ -1,6 +1,7 @@
 import { redirect } from "@sveltejs/kit";
 import { nanoid } from "nanoid";
 import argon2 from "argon2";
+import jwt from "jsonwebtoken";
 import prisma from "$lib/server/prisma.js";
 import { registerSchema } from "$lib/utils/schemas.js";
 
@@ -33,13 +34,17 @@ export const actions = {
 
 		if (!user) return { errors: { message: "Email already exists, could not create account!!" } };
 
-		cookies.set("session", user.id, {
+		const { password, ...userWithoutPassword } = user;
+
+		const payload = jwt.sign(userWithoutPassword, "secretOrPrivateKey");
+
+		cookies.set("session", payload, {
 			path: "/",
 			httpOnly: true,
 			sameSite: "strict",
 			maxAge: 24 * 24 * 60 * 7,
 		});
 
-		throw redirect(302, "/dashboard");
+		throw redirect(307, "/dashboard");
 	},
 };
