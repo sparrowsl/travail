@@ -1,8 +1,8 @@
 import { nanoid } from "nanoid";
 import prisma from "$lib/server/prisma.js";
+import { redirect } from "@sveltejs/kit";
 import { createPropertySchema } from "$lib/utils/schemas.js";
 import { uploadfile } from "$lib/utils/uploadFile.js";
-import { redirect } from "@sveltejs/kit";
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({}) {}

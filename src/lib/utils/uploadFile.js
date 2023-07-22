@@ -1,8 +1,7 @@
 import path from "path";
 import fs from "fs";
+import sharp from "sharp";
 import { nanoid } from "nanoid";
-
-const uploadPath = path.join(process.cwd(), "uploads");
 
 /**
  * Uploads a file and returns the file name of the uploaded file
@@ -10,11 +9,16 @@ const uploadPath = path.join(process.cwd(), "uploads");
  * @returns {Promise<String>} - Returns the new file name
  */
 export async function uploadfile(file) {
+	const uploadPath = path.join(process.cwd(), "uploads/");
+
 	// If folder does not exists, create the folder before uploading the file
 	if (!fs.existsSync(uploadPath)) fs.mkdirSync(uploadPath);
 
-	const filePath = path.join(uploadPath, `${nanoid()}.${file?.type.split("/")[1]}`);
-	fs.writeFileSync(filePath, Buffer.from(await file.arrayBuffer()));
+	const filePath = `${nanoid()}.webp`;
 
-	return String(filePath.split("/").at(-1));
+	await sharp(await file.arrayBuffer())
+		.resize({ height: 250, width: 300 })
+		.toFile(uploadPath + filePath);
+
+	return filePath;
 }

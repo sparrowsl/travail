@@ -69,7 +69,7 @@
 			<span class="text-sm text-gray-700 mb-2 block">Property Photo</span>
 			<Input
 				type="file"
-				placeholder=""
+				accept="image/*"
 				name="photo"
 				class="file:(border-0 bg-gray/20 rounded py-2 px-3 text-sm hover:cursor-pointer)"
 			/>
