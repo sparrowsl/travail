@@ -1,7 +1,8 @@
-import { redirect } from "@sveltejs/kit";
 import { nanoid } from "nanoid";
 import argon2 from "argon2";
 import jwt from "jsonwebtoken";
+import { redirect } from "@sveltejs/kit";
+import { JWT_SECRET_KEY } from "$env/static/private";
 import prisma from "$lib/server/prisma.js";
 import { registerSchema } from "$lib/utils/schemas.js";
 
@@ -36,7 +37,7 @@ export const actions = {
 
 		const { password, ...userWithoutPassword } = user;
 
-		const payload = jwt.sign(userWithoutPassword, "secretOrPrivateKey");
+		const payload = jwt.sign(userWithoutPassword, JWT_SECRET_KEY);
 
 		cookies.set("session", payload, {
 			path: "/",

@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import prisma from "$lib/server/prisma.js";
+import { JWT_SECRET_KEY } from "$env/static/private";
 
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
@@ -10,7 +11,7 @@ export async function handle({ event, resolve }) {
 	/** @type {Object<any,any>} */
 	let verifiedPayload;
 	try {
-		verifiedPayload = jwt.verify(session, "secretOrPrivateKey");
+		verifiedPayload = jwt.verify(session, JWT_SECRET_KEY);
 	} catch (error) {
 		return await resolve(event);
 	}
