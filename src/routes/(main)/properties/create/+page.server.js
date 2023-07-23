@@ -9,7 +9,7 @@ export async function load({}) {}
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	default: async ({ request }) => {
+	default: async ({ request, fetch }) => {
 		const formData = Object.fromEntries(await request.formData());
 
 		let result;
@@ -20,18 +20,23 @@ export const actions = {
 			return { errors };
 		}
 
-		await prisma.property.create({
-			data: {
+		const res = await fetch("/api/v1/properties", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
 				id: nanoid(),
 				title: result.name,
 				location: result.location,
 				description: result.description,
 				price: parseInt(result.price),
 				photo: await uploadfile(result.photo),
-				type: result.type.toString(),
-				userId: result.id,
-			},
+				type: result.type,
+				userId: result.userId,
+			}),
 		});
+		const data = await res.json();
+
+		if (!res.ok) return { errors: { message: data?.message } };
 
 		throw redirect(307, "/properties");
 	},

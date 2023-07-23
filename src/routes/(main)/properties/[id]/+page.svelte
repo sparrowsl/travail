@@ -8,11 +8,11 @@
 	const { property } = data;
 </script>
 
-<article class="bg-white/70 p-2 rounded w-3xl">
+<article class="bg-white/70 p-2 rounded max-w-3xl">
 	<h1 class="text-xl font-semibold text-gray-700 mb-5">Details</h1>
 
-	<section class="md:flex justify-between pr-5">
-		<figure class="">
+	<section class="flex flex-col justify-between pr-5 lg:flex-row">
+		<figure class="w-fit">
 			<Image
 				src="/uploads/{property.photo}"
 				alt={property.title}
@@ -58,7 +58,7 @@
 				</p>
 				<p class="font-semibold font-ptsans text-gray-600">2 properties</p>
 
-				<div class="flex justify-between gap-10 mt-5">
+				<div class="flex justify-between gap-10 my-5">
 					<Button type="button" class="bg-accent w-full text-white">
 						<i class="i-mdi:edit text-xl" />
 					</Button>
@@ -66,6 +66,8 @@
 						<i class="i-mdi:trash text-xl" />
 					</Button>
 				</div>
+
+				<Button type="button" class="bg-accent w-full mt-10">Book now</Button>
 			</figcaption>
 		</figure>
 	</section>

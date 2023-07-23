@@ -21,7 +21,7 @@
 	use:enhance
 >
 	<fieldset class="grid gap-7">
-		<Input type="hidden" name="id" value={$page.data.user.id} />
+		<Input type="hidden" name="userId" value={$page.data.user.id} />
 		<label for="" class="">
 			<span class="text-sm text-gray-700 mb-2 block">Enter property name</span>
 			<Input name="name" />
