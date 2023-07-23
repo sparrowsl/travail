@@ -3,7 +3,7 @@ import prisma from "$lib/server/prisma.js";
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
-	const properties = await prisma.property.findMany({});
+	const properties = await prisma.property.findMany({ orderBy: { id: "desc" } });
 	return json({ properties });
 }
 
