@@ -1,5 +1,5 @@
 import prisma from "$lib/server/prisma.js";
-import { json } from "@sveltejs/kit";
+import { error, json } from "@sveltejs/kit";
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
@@ -18,6 +18,10 @@ export async function PATCH({ params, request }) {
 
 /** @type {import('./$types').RequestHandler} */
 export async function DELETE({ params }) {
-	console.log("deleting property with id", params.id);
-	return json({});
+	try {
+		await prisma.property.delete({ where: { id: params.id } });
+		return json({});
+	} catch (e) {
+		throw error(400, "Could not delete property with that id");
+	}
 }

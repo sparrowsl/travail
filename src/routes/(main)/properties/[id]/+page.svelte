@@ -1,8 +1,10 @@
 <script>
+	import { enhance } from "$app/forms";
 	import Button from "$lib/components/Button.svelte";
 	import Image from "$lib/components/Image.svelte";
+	import Input from "$lib/components/Input.svelte";
 
-	/** @type {import("./$types").PageData} */
+	/** @type {import("./$types").PageServerData} */
 	export let data;
 
 	const { property } = data;
@@ -62,9 +64,12 @@
 					<Button type="button" class="bg-accent w-full text-white">
 						<i class="i-mdi:edit text-xl" />
 					</Button>
-					<Button type="button" class="bg-red-400 w-full text-white">
-						<i class="i-mdi:trash text-xl" />
-					</Button>
+					<form action="?/deleteProperty" method="post" class="w-full" use:enhance>
+						<Input type="hidden" name="propertyId" value={property.id} />
+						<Button class="bg-red-400 w-full text-white">
+							<i class="i-mdi:trash text-xl" />
+						</Button>
+					</form>
 				</div>
 
 				<Button type="button" class="bg-accent w-full mt-10">Book now</Button>

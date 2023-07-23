@@ -1,6 +1,5 @@
-import { nanoid } from "nanoid";
-import prisma from "$lib/server/prisma.js";
 import { redirect } from "@sveltejs/kit";
+import { nanoid } from "nanoid";
 import { createPropertySchema } from "$lib/utils/schemas.js";
 import { uploadfile } from "$lib/utils/uploadFile.js";
 
