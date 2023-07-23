@@ -3,13 +3,12 @@
 	import { page } from "$app/stores";
 
 	const links = [
-		{ name: "Dashboard", href: "/dashboard", icon: "i-ic:baseline-dashboard" },
+		{ name: "Dashboard", href: "/dashboard", icon: "i-mdi:view-dashboard" },
 		{ name: "Properties", href: "/properties", icon: "i-mdi:home-city" },
 		{ name: "Agents", href: "/agents", icon: "i-mdi:people" },
-		{ name: "Reviews", href: "/reviews", icon: "i-ant-design:star-outlined" },
+		{ name: "Reviews", href: "/reviews", icon: "i-mdi:hexagram-outline" },
 		{ name: "Messages", href: "/messages", icon: "i-mdi:chat-outline" },
 		{ name: "Profile", href: "/profile", icon: "i-mdi:account-circle-outline" },
-		// { name: "Logout", href: "/logout", icon: "i-ant-design:logout-outlined" },
 	];
 
 	$: currentPath = `/${$page.url.pathname.split("/")[1]}`;
@@ -34,7 +33,7 @@
 			{/each}
 			<form action="/?/logout" method="POST" class="text-gray-500 rounded-md" use:enhance>
 				<button class="flex gap-2 items-center p-3">
-					<i class="i-ant-design:logout-outlined text-2xl" />
+					<i class="i-mdi:logout text-2xl" />
 					<span class="font-bold tracking-wider w-full">Logout</span>
 				</button>
 			</form>

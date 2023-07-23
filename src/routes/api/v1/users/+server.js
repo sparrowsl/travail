@@ -1,9 +1,18 @@
 import { json } from "@sveltejs/kit";
+import prisma from "$lib/server/prisma.js";
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
-	console.log("getting all users");
-	return json({});
+	const users = await prisma.user.findMany({
+		select: {
+			avatar: true,
+			email: true,
+			id: true,
+			name: true,
+			properties: { select: { type: true } },
+		},
+	});
+	return json({ users });
 }
 
 /** @type {import('./$types').RequestHandler} */

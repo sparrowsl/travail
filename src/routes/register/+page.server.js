@@ -33,6 +33,7 @@ export const actions = {
 				email: result.email,
 				password: await argon2.hash(result.password),
 				name: result.name,
+				avatar: `https://robohash.org/${result.name}`,
 			},
 		});
 
