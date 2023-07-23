@@ -3,9 +3,11 @@ import { updatePropertySchema } from "$lib/utils/schemas.js";
 import { uploadfile } from "$lib/utils/uploadFile.js";
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ fetch, params }) {
+export async function load({ locals, fetch, params }) {
 	const res = await fetch(`/api/v1/properties/${params.id}`);
 	const { property } = await res.json();
+
+	if (locals.user.id !== property.userId) throw redirect(307, `/properties/${params.id}`);
 
 	return {
 		/** @type {import("$lib/types.js").Property} */

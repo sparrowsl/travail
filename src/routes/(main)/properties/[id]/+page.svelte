@@ -1,4 +1,5 @@
 <script>
+	import { page } from "$app/stores";
 	import { enhance } from "$app/forms";
 	import Button from "$lib/components/Button.svelte";
 	import Image from "$lib/components/Image.svelte";
@@ -6,7 +7,8 @@
 
 	/** @type {import("./$types").PageServerData} */
 	export let data;
-
+	// prettier-ignore
+	$: ({ data: { user }} = $page);
 	const { property } = data;
 </script>
 
@@ -60,20 +62,22 @@
 				</p>
 				<p class="font-semibold font-ptsans text-gray-600">2 properties</p>
 
-				<div class="flex justify-between gap-10 my-5">
-					<a
-						href="/properties/edit/{property.id}"
-						class="bg-accent grid place-content-center rounded w-full text-white"
-					>
-						<i class="i-mdi:edit text-xl" />
-					</a>
-					<form action="?/deleteProperty" method="post" class="w-full" use:enhance>
-						<Input type="hidden" name="propertyId" value={property.id} />
-						<Button class="bg-red-400 w-full text-white">
-							<i class="i-mdi:trash text-xl" />
-						</Button>
-					</form>
-				</div>
+				{#if property.userId === user.id}
+					<div class="flex justify-between gap-10 my-5">
+						<a
+							href="/properties/edit/{property.id}"
+							class="bg-accent grid place-content-center rounded w-full text-white"
+						>
+							<i class="i-mdi:edit text-xl" />
+						</a>
+						<form action="?/deleteProperty" method="post" class="w-full" use:enhance>
+							<Input type="hidden" name="propertyId" value={property.id} />
+							<Button class="bg-red-400 w-full text-white">
+								<i class="i-mdi:trash text-xl" />
+							</Button>
+						</form>
+					</div>
+				{/if}
 
 				<Button type="button" class="bg-accent w-full mt-10">Book now</Button>
 			</figcaption>

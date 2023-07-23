@@ -28,7 +28,7 @@
 		<p class="text-gray-700 italic px-3">loading properties...</p>
 	{:then properties}
 		<h3 class="text-xl font-semibold text-gray-700 px-2 mb-3">Properties</h3>
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl">
+		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
 			{#each properties as property (property.id)}
 				<PropertyCard {property} />
 			{/each}
