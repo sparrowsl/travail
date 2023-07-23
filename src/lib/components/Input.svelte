@@ -2,7 +2,7 @@
 	export let type = "text";
 	export let disabled = false;
 	export let value = "";
-	export let required = false;
+	export let required = true;
 	export let placeholder = "Enter something";
 	export let name = "";
 	export let id = "";

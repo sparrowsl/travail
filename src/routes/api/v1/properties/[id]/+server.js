@@ -1,5 +1,5 @@
-import prisma from "$lib/server/prisma.js";
 import { error, json } from "@sveltejs/kit";
+import prisma from "$lib/server/prisma.js";
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ params }) {
@@ -12,8 +12,19 @@ export async function GET({ params }) {
 
 /** @type {import('./$types').RequestHandler} */
 export async function PATCH({ params, request }) {
-	console.log("updating property with id", params.id);
-	return json({});
+	const { title, location, description, price, photo, type } = await request.json();
+
+	try {
+		const property = await prisma.property.update({
+			data: { title, location, description, price, photo, type },
+			where: { id: params.id },
+		});
+
+		return json({ property });
+	} catch (e) {
+		console.log(e);
+		throw error(400, "could not update this property");
+	}
 }
 
 /** @type {import('./$types').RequestHandler} */

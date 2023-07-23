@@ -44,7 +44,7 @@
 					<span class="text-sm font-ptsans text-gray-500">for one day</span>
 				</p>
 
-				<p class="text-gray-700 max-w-26rem">{property.description}</p>
+				<p class="text-gray-700 max-w-26rem whitespace-pre-wrap">{property.description}</p>
 			</figcaption>
 		</figure>
 
@@ -61,9 +61,12 @@
 				<p class="font-semibold font-ptsans text-gray-600">2 properties</p>
 
 				<div class="flex justify-between gap-10 my-5">
-					<Button type="button" class="bg-accent w-full text-white">
+					<a
+						href="/properties/edit/{property.id}"
+						class="bg-accent grid place-content-center rounded w-full text-white"
+					>
 						<i class="i-mdi:edit text-xl" />
-					</Button>
+					</a>
 					<form action="?/deleteProperty" method="post" class="w-full" use:enhance>
 						<Input type="hidden" name="propertyId" value={property.id} />
 						<Button class="bg-red-400 w-full text-white">
