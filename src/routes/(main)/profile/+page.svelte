@@ -31,3 +31,9 @@
 		<Button type="button" class="bg-accent px-4 mt-5">Update Account</Button>
 	</figcaption>
 </figure>
+
+<!-- <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl">
+	{#each data.agent?.properties as property (property.id)}
+		<PropertyCard {property} />
+	{/each}
+</section> -->
