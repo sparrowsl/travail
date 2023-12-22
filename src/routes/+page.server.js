@@ -1,13 +1,15 @@
-import argon2 from "argon2";
-import jwt from "jsonwebtoken";
-import { redirect } from "@sveltejs/kit";
 import { JWT_SECRET_KEY } from "$env/static/private";
+import db from "$lib/server/db.js";
+import { usersTable } from "$lib/server/schemas.js";
 import { loginSchema } from "$lib/utils/schemas.js";
-import prisma from "$lib/server/prisma.js";
+import { redirect } from "@sveltejs/kit";
+import argon2 from "argon2";
+import { eq } from "drizzle-orm";
+import jwt from "jsonwebtoken";
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ locals }) {
-	if (locals.user) throw redirect(302, "/dashboard");
+	if (locals.user) redirect(302, "/dashboard");
 }
 
 /** @type {import('./$types').Actions} */
@@ -23,20 +25,18 @@ export const actions = {
 			return { errors };
 		}
 
-		const user = await prisma.user.findUnique({
-			where: { email: result.email },
-			select: { id: true, password: true, email: true, name: true, avatar: true },
+		const user = await db.query.usersTable.findFirst({
+			where: eq(usersTable.email, result.email),
 		});
 
 		if (!user || !(await argon2.verify(user.password, result.password))) {
-			return { errors: { message: "Invalid email and password!!, try again" } };
+			return { errors: { message: "Invalid email and password!! try again" } };
 		}
 
-		const { password, ...userWithoutPassword } = user;
+		const { password, avatar, dateJoined, ...rest } = user;
+		const payload = jwt.sign(rest, JWT_SECRET_KEY);
 
-		const payload = jwt.sign(userWithoutPassword, JWT_SECRET_KEY);
-
-		cookies.set("session", payload, {
+		cookies.set("token", payload, {
 			path: "/",
 			httpOnly: true,
 			sameSite: "strict",
@@ -47,7 +47,7 @@ export const actions = {
 	},
 
 	logout: async ({ cookies }) => {
-		cookies.set("session", "", { path: "/", expires: new Date(0) });
-		throw redirect(307, "/");
+		cookies.set("token", "", { path: "/", expires: new Date(0) });
+		redirect(307, "/");
 	},
 };

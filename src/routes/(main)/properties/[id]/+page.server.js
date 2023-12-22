@@ -1,24 +1,24 @@
+import db from "$lib/server/db.js";
+import { propertiesTable } from "$lib/server/schemas.js";
 import { redirect } from "@sveltejs/kit";
+import { eq } from "drizzle-orm";
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ fetch, params }) {
-	const res = await fetch(`/api/v1/properties/${params.id}`);
-	const { property } = await res.json();
+export async function load({ params }) {
+	const property = await db.query.propertiesTable.findFirst({
+		where: eq(propertiesTable.id, params.id),
+	});
 
-	return {
-		/** @type {import("$lib/types.js").Property} */
-		property,
-	};
+	return { property };
 }
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	deleteProperty: async ({ request, fetch }) => {
+	deleteProperty: async ({ request }) => {
 		const formData = Object.fromEntries(await request.formData());
 
-		const res = await fetch(`/api/v1/properties/${formData.propertyId}`, { method: "DELETE" });
-		if (!res.ok) return;
+		await db.delete(propertiesTable).where(eq(propertiesTable.id, String(formData.propertyId)));
 
-		throw redirect(307, "/properties");
+		redirect(307, "/properties");
 	},
 };

@@ -1,19 +1,21 @@
-import { nanoid } from "nanoid";
-import argon2 from "argon2";
-import jwt from "jsonwebtoken";
-import { redirect } from "@sveltejs/kit";
 import { JWT_SECRET_KEY } from "$env/static/private";
-import prisma from "$lib/server/prisma.js";
+import db from "$lib/server/db.js";
+import { usersTable } from "$lib/server/schemas.js";
 import { registerSchema } from "$lib/utils/schemas.js";
+import { redirect } from "@sveltejs/kit";
+import argon2 from "argon2";
+import { eq } from "drizzle-orm";
+import jwt from "jsonwebtoken";
+import { nanoid } from "nanoid";
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ locals }) {
-	if (locals.user) throw redirect(302, "/dashboard");
+	if (locals.user) redirect(302, "/dashboard");
 }
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	default: async ({ cookies, fetch, request }) => {
+	default: async ({ cookies, request }) => {
 		const formData = Object.fromEntries(await request.formData());
 
 		let result;
@@ -24,32 +26,35 @@ export const actions = {
 			return { errors };
 		}
 
-		const emailExist = await prisma.user.findUnique({ where: { email: result.email } });
+		const emailExist = await db.query.usersTable.findFirst({
+			where: eq(usersTable.email, result.email),
+		});
 		if (emailExist) return { errors: { email: ["Email already exists"] } };
 
-		const user = await prisma.user.create({
-			data: {
+		const user = await db
+			.insert(usersTable)
+			.values({
 				id: nanoid(),
 				email: result.email,
 				password: await argon2.hash(result.password),
 				name: result.name,
 				avatar: `https://robohash.org/${result.name}`,
-			},
-		});
+			})
+			.returning()
+			.get();
 
 		if (!user) return { errors: { message: "Could not create account!!" } };
 
-		const { password, ...userWithoutPassword } = user;
+		const { password, dateJoined, avatar, ...rest } = user;
+		const payload = jwt.sign(rest, JWT_SECRET_KEY);
 
-		const payload = jwt.sign(userWithoutPassword, JWT_SECRET_KEY);
-
-		cookies.set("session", payload, {
+		cookies.set("token", payload, {
 			path: "/",
 			httpOnly: true,
 			sameSite: "strict",
 			maxAge: 24 * 24 * 60 * 7,
 		});
 
-		throw redirect(307, "/dashboard");
+		redirect(307, "/dashboard");
 	},
 };

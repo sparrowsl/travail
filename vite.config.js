@@ -1,6 +1,6 @@
 import { sveltekit } from "@sveltejs/kit/vite";
-import { defineConfig, searchForWorkspaceRoot } from "vite";
 import unocss from "unocss/vite";
+import { defineConfig, searchForWorkspaceRoot } from "vite";
 
 export default defineConfig({
 	plugins: [sveltekit(), unocss()],
@@ -8,5 +8,8 @@ export default defineConfig({
 		fs: {
 			allow: [searchForWorkspaceRoot(process.cwd()), "/uploads"],
 		},
+	},
+	test: {
+		include: ["src/**/*.{test,spec}.{js,ts}"],
 	},
 });

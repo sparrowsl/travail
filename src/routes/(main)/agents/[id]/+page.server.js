@@ -3,10 +3,10 @@ import { usersTable } from "$lib/server/schemas.js";
 import { eq } from "drizzle-orm";
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ locals }) {
-	const user = await db.query.usersTable.findFirst({
-		where: eq(usersTable.id, String(locals.user.id)),
+export async function load({ params }) {
+	const agent = await db.query.usersTable.findFirst({
+		where: eq(usersTable.id, params.id),
 	});
 
-	return { currentUser: user };
+	return { agent };
 }

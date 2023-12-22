@@ -7,39 +7,39 @@
 	const { currentUser } = data;
 </script>
 
-<h1 class="text-xl font-semibold text-gray-700">My Profile</h1>
+<h1 class="font-semibold text-xl text-gray-700">My Profile</h1>
 
-<figure class="flex items-center gap-5 bg-white rounded max-w-2xl py-7 mt-3">
+<figure class="bg-white rounded flex mt-3 max-w-2xl py-7 gap-5 items-center">
 	<Image src={currentUser.avatar} />
 	<figcaption>
-		<h2 class="font-semibold text-gray-700 text-2xl font-ptsans">{currentUser.name}</h2>
-		<p class="text-gray-400 text-sm font-semibold mt-2">Real-Estate Agent</p>
-		<p class="flex items-center gap-1 text-gray-700 mt-3">
-			<i class="i-mdi:email-outline text-xl" />
+		<h2 class="font-semibold font-ptsans text-gray-700 text-2xl">{currentUser.name}</h2>
+		<p class="font-semibold mt-2 text-sm text-gray-400">Real-Estate Agent</p>
+		<p class="flex mt-3 text-gray-700 gap-1 items-center">
+			<i class="text-xl i-mdi:email-outline" />
 			{currentUser.email}
 		</p>
-		<p class="flex items-center gap-1 text-gray-700 mt-3">
-			<i class="i-mdi:location text-xl" />
+		<p class="flex mt-3 text-gray-700 gap-1 items-center">
+			<i class="text-xl i-mdi:location" />
 			{currentUser?.location ?? "Los Angeles"}
 		</p>
-		<p class="flex items-center gap-1 text-gray-700 mt-3">
-			<i class="i-mdi:phone-outline text-xl" />
+		<p class="flex mt-3 text-gray-700 gap-1 items-center">
+			<i class="text-xl i-mdi:phone-outline" />
 			{currentUser?.contact ?? "+232-99-905-600"}
 		</p>
-		<p class="flex items-center gap-1 text-gray-700 mt-3">
-			<i class="i-mdi:city text-xl" />
+		<p class="flex mt-3 text-gray-700 gap-1 items-center">
+			<i class="text-xl i-mdi:city" />
 			{currentUser?.properties?.length ?? 0} properties
 		</p>
 
-		<Button type="button" class="bg-accent px-4 mt-5">Update Account</Button>
+		<Button type="button" class="bg-accent mt-5 px-4">Update Account</Button>
 	</figcaption>
 </figure>
 
-{#if currentUser?.properties.length > 0}
-	<article class="mt-5 bg-white p-5 w-fit rounded">
-		<h3 class="font-semibold text-gray-700 ml-2 mb-2">My Properties</h3>
+{#if currentUser?.properties?.length > 0}
+	<article class="bg-white rounded mt-5 w-fit p-5">
+		<h3 class="font-semibold mb-2 ml-2 text-gray-700">My Properties</h3>
 
-		<section class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl">
+		<section class="max-w-4xl grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 			{#each currentUser?.properties as property (property.id)}
 				<PropertyCard {property} />
 			{/each}

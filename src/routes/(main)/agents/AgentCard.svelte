@@ -1,34 +1,34 @@
 <script>
 	import Image from "$lib/components/Image.svelte";
 
-	/** @type {any} */
+	/** @type {import("$lib/types").User} */
 	export let agent;
 </script>
 
-<figure class="bg-white rounded py-4 flex gap-5 max-w-4xl">
-	<Image src={agent.avatar} class="h-20 rounded-full" />
+<figure class="bg-white rounded flex max-w-4xl py-4 gap-5">
+	<Image src={String(agent?.avatar)} class="rounded-full h-20" />
 	<figcaption>
-		<div class="flex items-center gap-5">
-			<h3 class="font-semibold text-gray-800">{agent.name}</h3>
-			<p class="text-gray-400 text-sm font-semibold">Real-Estate Agent</p>
+		<div class="flex gap-5 items-center">
+			<h3 class="font-semibold text-gray-800">{agent?.name}</h3>
+			<p class="font-semibold text-sm text-gray-400">Real-Estate Agent</p>
 		</div>
 
-		<div class="flex gap-5 flex-wrap mt-3">
-			<p class="flex items-center gap-1 text-sm text-gray-700">
-				<i class="i-mdi:email-outline text-xl" />
-				{agent.email}
+		<div class="flex flex-wrap mt-3 gap-5">
+			<p class="flex text-sm text-gray-700 gap-1 items-center">
+				<i class="text-xl i-mdi:email-outline" />
+				{agent?.email}
 			</p>
-			<p class="flex items-center gap-1 text-sm text-gray-700">
-				<i class="i-mdi:location text-xl" />
-				{agent?.location ?? "Los Angeles"}
+			<p class="flex text-sm text-gray-700 gap-1 items-center">
+				<i class="text-xl i-mdi:location" />
+				{agent?.location || "Los Angeles"}
 			</p>
-			<p class="flex items-center gap-1 text-sm text-gray-700">
-				<i class="i-mdi:phone-outline text-xl" />
-				{agent?.contact ?? "+232-99-905-600"}
+			<p class="flex text-sm text-gray-700 gap-1 items-center">
+				<i class="text-xl i-mdi:phone-outline" />
+				{agent?.contact || "+232-99-905-600"}
 			</p>
-			<p class="flex items-center gap-1 text-sm text-gray-700">
-				<i class="i-mdi:city text-xl" />
-				{agent?.properties.length ?? 0} properties
+			<p class="flex text-sm text-gray-700 gap-1 items-center">
+				<i class="text-xl i-mdi:city" />
+				{agent?.properties?.length || 0} properties
 			</p>
 		</div>
 	</figcaption>

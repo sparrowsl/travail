@@ -1,24 +1,12 @@
-import { json, error } from "@sveltejs/kit";
-import prisma from "$lib/server/prisma.js";
+import db from "$lib/server/db.js";
+import { propertiesTable } from "$lib/server/schemas.js";
+import { error, json } from "@sveltejs/kit";
+import { desc } from "drizzle-orm";
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET() {
-	const properties = await prisma.property.findMany({ orderBy: { id: "desc" } });
+	const properties = await db.query.propertiesTable.findMany({
+		orderBy: desc(propertiesTable.id),
+	});
 	return json({ properties });
-}
-
-/** @type {import('./$types').RequestHandler} */
-export async function POST({ request }) {
-	const { id, title, location, description, price, photo, type, userId } = await request.json();
-
-	try {
-		const property = await prisma.property.create({
-			data: { id, title, location, description, price, photo, type, userId },
-		});
-
-		return json({ property });
-	} catch (e) {
-		console.log(e);
-		throw error(400, "Could not create the property");
-	}
 }

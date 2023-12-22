@@ -1,14 +1,13 @@
-import { redirect } from "@sveltejs/kit";
-import { nanoid } from "nanoid";
+import db from "$lib/server/db.js";
+import { propertiesTable } from "$lib/server/schemas.js";
 import { createPropertySchema } from "$lib/utils/schemas.js";
 import { uploadfile } from "$lib/utils/uploadFile.js";
-
-/** @type {import('./$types').PageServerLoad} */
-export async function load({}) {}
+import { redirect } from "@sveltejs/kit";
+import { nanoid } from "nanoid";
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	default: async ({ request, fetch }) => {
+	default: async ({ request }) => {
 		const formData = Object.fromEntries(await request.formData());
 
 		let result;
@@ -19,24 +18,23 @@ export const actions = {
 			return { errors };
 		}
 
-		const res = await fetch("/api/v1/properties", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({
+		const property = await db
+			.insert(propertiesTable)
+			.values({
 				id: nanoid(),
 				title: result.name,
 				location: result.location,
 				description: result.description,
 				price: parseInt(result.price),
 				photo: await uploadfile(result.photo),
-				type: result.type,
+				type: String(result.type),
 				userId: result.userId,
-			}),
-		});
-		const data = await res.json();
+			})
+			.returning()
+			.get();
 
-		if (!res.ok) return { errors: { message: data?.message } };
+		if (!property) return { errors: { message: "Can't create property currently!!" } };
 
-		throw redirect(307, "/properties");
+		redirect(307, "/properties");
 	},
 };

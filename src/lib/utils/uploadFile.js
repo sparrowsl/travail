@@ -1,7 +1,7 @@
-import path from "path";
 import fs from "fs";
-import sharp from "sharp";
+import path from "path";
 import { nanoid } from "nanoid";
+import sharp from "sharp";
 
 /**
  * Uploads a file and returns the file name of the uploaded file

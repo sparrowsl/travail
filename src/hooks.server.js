@@ -1,24 +1,25 @@
-import jwt from "jsonwebtoken";
-import prisma from "$lib/server/prisma.js";
 import { JWT_SECRET_KEY } from "$env/static/private";
+import db from "$lib/server/db.js";
+import { usersTable } from "$lib/server/schemas.js";
+import { eq } from "drizzle-orm";
+import jwt from "jsonwebtoken";
 
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
-	const session = event.cookies.get("session");
+	const token = event.cookies.get("token");
 
-	if (!session) return await resolve(event);
+	if (!token) return await resolve(event);
 
-	/** @type {Object<any,any>} */
+	/** @type {Object<any,any} */
 	let verifiedPayload;
 	try {
-		verifiedPayload = jwt.verify(session, JWT_SECRET_KEY);
+		verifiedPayload = jwt.verify(token, JWT_SECRET_KEY);
 	} catch (error) {
 		return await resolve(event);
 	}
 
-	const user = await prisma.user.findUnique({
-		where: { id: verifiedPayload?.id },
-		select: { email: true, name: true, id: true, avatar: true },
+	const user = await db.query.usersTable.findFirst({
+		where: eq(usersTable.id, verifiedPayload?.id),
 	});
 
 	if (user) event.locals.user = user;
