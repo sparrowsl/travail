@@ -28,7 +28,7 @@ export const actions = {
 				price: parseInt(result.price),
 				photo: await uploadfile(result.photo),
 				type: String(result.type),
-				userId: result.userId,
+				agentId: result.agentId,
 			})
 			.returning()
 			.get();

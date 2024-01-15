@@ -1,12 +1,13 @@
 export interface Property {
 	id?: string;
-	title: string;
+	title?: string;
 	description: string;
-	type: string;
+	type: string | number;
 	location: string;
 	photo: string;
 	price: number;
-	userId: string | null;
+	userId?: string | null;
+	agentId?: string | null;
 	user?: User;
 }
 

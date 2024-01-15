@@ -10,7 +10,7 @@ export async function handle({ event, resolve }) {
 
 	if (!token) return await resolve(event);
 
-	/** @type {Object<any,any} */
+	/** @type {Object<any,any>} */
 	let verifiedPayload;
 	try {
 		verifiedPayload = jwt.verify(token, JWT_SECRET_KEY);
