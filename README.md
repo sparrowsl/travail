@@ -53,7 +53,7 @@ Create a `.env` file in the root directory and set the following variables:
 
 ```env
 DATABASE_URL="./database.db"
-JWT_SECRET_KEY=superdumblongsecretkey
+JWT_SECRET_KEY="superdumblongsecretkey"
 ```
 
 Adjust the values according to your environment.
@@ -66,7 +66,7 @@ npm run db:push
 
 run `npm run db:studio` to add data manually in the database _(use for creating new admin only)_
 
-### 4. Run the Application
+### 5. Run the Application
 
 ```bash
 npm run dev

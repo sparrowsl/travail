@@ -36,14 +36,14 @@
 			"style": {
 				"recommended": true,
 				"noImplicitBoolean": "error",
-				"noNamespace": "off",
+				"noNamespace": "warn",
 				"noNegationElse": "warn",
 				"noRestrictedGlobals": "warn",
 				"noShoutyConstants": "error",
 				"useBlockStatements": "warn",
 				"useCollapsedElseIf": "warn",
 				"useFragmentSyntax": "warn",
-				"useNamingConvention": "off"
+				"useNamingConvention": "warn"
 			},
 			"complexity": {
 				"recommended": true,
@@ -51,19 +51,20 @@
 				"useSimplifiedLogicExpression": "warn"
 			},
 			"nursery": {
+				"recommended": true,
 				"noDuplicateJsonKeys": "error",
 				"noEmptyBlockStatements": "error",
 				"noUnusedImports": "warn",
 				"noUnusedPrivateClassMembers": "error",
 				"noUselessLoneBlockStatements": "error",
-				"useAwait": "off",
+				"useAwait": "warn",
 				"useImportRestrictions": "warn",
 				"noGlobalAssign": "error",
 				"noGlobalEval": "error",
 				"noInvalidUseBeforeDeclaration": "error",
 				"noUselessTernary": "warn",
 				"useForOf": "warn",
-				"recommended": true
+				"useFilenamingConvention": "warn"
 			}
 		}
 	}
