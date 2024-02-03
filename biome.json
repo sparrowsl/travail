@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
 	"organizeImports": {
 		"enabled": true
 	},
@@ -15,7 +15,11 @@
 				"recommended": true
 			},
 			"correctness": {
-				"recommended": true
+				"recommended": true,
+				"noNewSymbol": "warn",
+				"noUndeclaredVariables": "error",
+				"noUnusedVariables": "error",
+				"useHookAtTopLevel": "error"
 			},
 			"performance": {
 				"recommended": true
@@ -24,12 +28,41 @@
 				"recommended": true
 			},
 			"suspicious": {
-				"recommended": true
+				"recommended": true,
+				"noApproximativeNumericConstant": "error",
+				"noConsoleLog": "warn",
+				"noMisrefactoredShorthandAssign": "error"
 			},
 			"style": {
-				"recommended": true
+				"recommended": true,
+				"noImplicitBoolean": "error",
+				"noNamespace": "off",
+				"noNegationElse": "warn",
+				"noRestrictedGlobals": "warn",
+				"noShoutyConstants": "error",
+				"useBlockStatements": "warn",
+				"useCollapsedElseIf": "warn",
+				"useFragmentSyntax": "warn",
+				"useNamingConvention": "off"
 			},
 			"complexity": {
+				"recommended": true,
+				"noVoid": "warn",
+				"useSimplifiedLogicExpression": "warn"
+			},
+			"nursery": {
+				"noDuplicateJsonKeys": "error",
+				"noEmptyBlockStatements": "error",
+				"noUnusedImports": "warn",
+				"noUnusedPrivateClassMembers": "error",
+				"noUselessLoneBlockStatements": "error",
+				"useAwait": "off",
+				"useImportRestrictions": "warn",
+				"noGlobalAssign": "error",
+				"noGlobalEval": "error",
+				"noInvalidUseBeforeDeclaration": "error",
+				"noUselessTernary": "warn",
+				"useForOf": "warn",
 				"recommended": true
 			}
 		}
