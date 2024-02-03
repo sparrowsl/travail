@@ -5,6 +5,7 @@
 	import { fade, scale } from "svelte/transition";
 	import "@unocss/reset/tailwind.css";
 	import "uno.css";
+	import Navigation from "./Navigation.svelte";
 
 	onNavigate(async (navigation) => {
 		// @ts-ignore
@@ -21,9 +22,14 @@
 </script>
 
 {#if $navigating && browser}
-	<div in:fade out:scale class="bg-gray/30 grid inset-0 absolute place-content-center">
+	<div
+		in:fade
+		out:scale
+		class="bg-gray/30 grid inset-0 absolute place-content-center"
+	>
 		<i class="text-6xl i-svg-spinners:gooey-balls-2" />
 	</div>
 {/if}
 
+<Navigation />
 <slot />

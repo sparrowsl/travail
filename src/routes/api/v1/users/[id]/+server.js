@@ -11,13 +11,11 @@ export async function GET({ params }) {
 }
 
 /** @type {import('./$types').RequestHandler} */
-export async function PATCH({ params }) {
-	console.log("updating user with id", params.id);
+export async function PATCH() {
 	return json({});
 }
 
 /** @type {import('./$types').RequestHandler} */
-export async function DELETE({ params }) {
-	console.log("deleting user with id", params.id);
+export async function DELETE() {
 	return json({});
 }

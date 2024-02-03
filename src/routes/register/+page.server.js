@@ -10,7 +10,9 @@ import { nanoid } from "nanoid";
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ locals }) {
-	if (locals.user) redirect(302, "/dashboard");
+	if (locals.user) {
+		redirect(302, "/dashboard");
+	}
 }
 
 /** @type {import('./$types').Actions} */
@@ -29,7 +31,9 @@ export const actions = {
 		const emailExist = await db.query.usersTable.findFirst({
 			where: eq(usersTable.email, result.email),
 		});
-		if (emailExist) return { errors: { email: ["Email already exists"] } };
+		if (emailExist) {
+			return { errors: { email: ["Email already exists"] } };
+		}
 
 		const user = await db
 			.insert(usersTable)
@@ -43,9 +47,11 @@ export const actions = {
 			.returning()
 			.get();
 
-		if (!user) return { errors: { message: "Could not create account!!" } };
+		if (!user) {
+			return { errors: { message: "Could not create account!!" } };
+		}
 
-		const { password, dateJoined, avatar, ...rest } = user;
+		const { password: _p, joined: _j, avatar: _a, ...rest } = user;
 		const payload = jwt.sign(rest, JWT_SECRET_KEY);
 
 		cookies.set("token", payload, {

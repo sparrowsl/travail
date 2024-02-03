@@ -1,6 +1,6 @@
 import db from "$lib/server/db.js";
 import { propertiesTable } from "$lib/server/schemas.js";
-import { error, json } from "@sveltejs/kit";
+import { json } from "@sveltejs/kit";
 import { desc } from "drizzle-orm";
 
 /** @type {import('./$types').RequestHandler} */

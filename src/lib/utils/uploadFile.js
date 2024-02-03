@@ -12,7 +12,9 @@ export async function uploadfile(file) {
 	const uploadPath = path.join(process.cwd(), "uploads/");
 
 	// If folder does not exists, create the folder before uploading the file
-	if (!fs.existsSync(uploadPath)) fs.mkdirSync(uploadPath);
+	if (!fs.existsSync(uploadPath)) {
+		fs.mkdirSync(uploadPath);
+	}
 
 	const filePath = `${nanoid()}.webp`;
 

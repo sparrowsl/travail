@@ -16,7 +16,6 @@ export async function GET() {
 }
 
 /** @type {import('./$types').RequestHandler} */
-export async function POST({ request }) {
-	console.log("adding a user");
+export async function POST() {
 	return json({});
 }

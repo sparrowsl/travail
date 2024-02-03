@@ -8,13 +8,15 @@ import jwt from "jsonwebtoken";
 export async function handle({ event, resolve }) {
 	const token = event.cookies.get("token");
 
-	if (!token) return await resolve(event);
+	if (!token) {
+		return await resolve(event);
+	}
 
 	/** @type {Object<any,any>} */
 	let verifiedPayload;
 	try {
 		verifiedPayload = jwt.verify(token, JWT_SECRET_KEY);
-	} catch (error) {
+	} catch (_error) {
 		return await resolve(event);
 	}
 
@@ -22,7 +24,9 @@ export async function handle({ event, resolve }) {
 		where: eq(usersTable.id, verifiedPayload?.id),
 	});
 
-	if (user) event.locals.user = user;
+	if (user) {
+		event.locals.user = user;
+	}
 
 	return await resolve(event);
 }

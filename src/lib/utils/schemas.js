@@ -12,10 +12,13 @@ export const createPropertySchema = z.object({
 		.trim(),
 	// @ts-ignore
 	type: z.nativeEnum(propertyTypes),
-	price: z.string().refine((val) => parseInt(val) > 0, {
+	price: z.string().refine((val) => Number.parseInt(val) > 0, {
 		message: "Price must be greater than 0!!",
 	}),
-	location: z.string().min(5, { message: "Location of the house must be 5 or more letters" }).trim(),
+	location: z
+		.string()
+		.min(5, { message: "Location of the house must be 5 or more letters" })
+		.trim(),
 	photo: z
 		.any(z.instanceof(File, { message: "Please select a valid file!!" }))
 		.refine((value) => value.size > 0, { message: "Please select a file" }),
@@ -32,10 +35,13 @@ export const updatePropertySchema = z.object({
 		.trim(),
 	// @ts-ignore
 	type: z.nativeEnum(propertyTypes),
-	price: z.string().refine((val) => parseInt(val) > 0, {
+	price: z.string().refine((val) => Number.parseInt(val) > 0, {
 		message: "Price must be greater than 0!!",
 	}),
-	location: z.string().min(5, { message: "Location of the house must be 5 or more letters" }).trim(),
+	location: z
+		.string()
+		.min(5, { message: "Location of the house must be 5 or more letters" })
+		.trim(),
 	photo: z
 		.any(z.instanceof(File, { message: "Please select a valid file!!" }))
 		// .refine((value) => value.size > 0, { message: "Please select a file" })

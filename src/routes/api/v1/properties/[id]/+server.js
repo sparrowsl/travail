@@ -23,8 +23,7 @@ export async function PATCH({ params, request }) {
 		});
 
 		return json({ property });
-	} catch (e) {
-		console.log(e);
+	} catch (_e) {
 		error(400, "could not update this property");
 	}
 }
@@ -34,7 +33,7 @@ export async function DELETE({ params }) {
 	try {
 		await prisma.property.delete({ where: { id: params.id } });
 		return json({});
-	} catch (e) {
+	} catch (_e) {
 		error(400, "Could not delete property with that id");
 	}
 }
