@@ -21,11 +21,23 @@ export default defineConfig({
 		presetWebFonts({
 			fonts: {
 				ptsans: "PT Sans",
+				roboto: "Roboto",
 				raleway: "Raleway",
 			},
 		}),
 	],
+	theme: {
+		colors: {
+			brand: {
+				primary: "#0C2D57", // #0A1D56
+				secondary: "#FF6868",
+			},
+		},
+	},
 	extractors: [extractorSvelte()],
 	transformers: [transformerVariantGroup()],
-	shortcuts: { "bg-accent": "bg-blue-500 text-white" },
+	shortcuts: {
+		"bg-accent": "bg-blue-500 text-white",
+		container: "max-w-7xl mx-auto",
+	},
 });

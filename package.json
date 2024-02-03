@@ -16,18 +16,19 @@
 		"db:generate": "drizzle-kit generate:sqlite"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.4.1",
+		"@biomejs/biome": "^1.5.3",
 		"@iconify-json/mdi": "^1.1.53",
 		"@iconify-json/svg-spinners": "^1.1.1",
 		"@julr/unocss-preset-forms": "^0.1.0",
-		"@melt-ui/pp": "^0.1.4",
-		"@melt-ui/svelte": "^0.66.0",
-		"@sveltejs/adapter-node": "^2.0.0",
+		"@melt-ui/pp": "^0.3.0",
+		"@melt-ui/svelte": "^0.71.1",
+		"@sveltejs/adapter-node": "^4.0.1",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@unocss/extractor-svelte": "^0.58.0",
 		"drizzle-kit": "^0.20.7",
-		"husky": "^8.0.3",
+		"husky": "^9.0.10",
+		"sharp": "^0.33.2",
 		"svelte": "^4.2.7",
 		"svelte-check": "^3.6.0",
 		"svelte-sequential-preprocessor": "^2.0.1",
@@ -45,7 +46,6 @@
 		"drizzle-orm": "^0.29.1",
 		"jsonwebtoken": "^9.0.1",
 		"nanoid": "^5.0.4",
-		"sharp": "^0.32.4",
 		"zod": "^3.21.4"
 	}
 }
