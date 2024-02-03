@@ -17,7 +17,9 @@
 <aside class="h-screen bg-white w-max">
 	<nav class="">
 		<!-- Logo / Brand -->
-		<a href="/dashboard" class="p-7 block font-ptsans text-2xl text-gray-800">Travail💼</a>
+		<a href="/dashboard" class="p-7 block font-ptsans text-2xl text-gray-800">
+			Travai🏠
+		</a>
 
 		<!-- Menu items -->
 		<ul class="flex flex-col font-raleway text-sm py-2 px-4">
@@ -31,8 +33,13 @@
 					<a {href} class="font-bold tracking-wider w-full">{name}</a>
 				</li>
 			{/each}
-			<form action="/?/logout" method="POST" class="text-gray-500 rounded-md" use:enhance>
-				<button class="flex gap-2 items-center p-3">
+			<form
+				action=""
+				method="POST"
+				class="text-gray-500 rounded-md"
+				use:enhance
+			>
+				<button class="flex gap-2 items-center p-3" type="button">
 					<i class="i-mdi:logout text-2xl" />
 					<span class="font-bold tracking-wider w-full">Logout</span>
 				</button>
