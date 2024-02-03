@@ -64,7 +64,7 @@
 				"noInvalidUseBeforeDeclaration": "error",
 				"noUselessTernary": "warn",
 				"useForOf": "warn",
-				"useFilenamingConvention": "warn"
+				"useFilenamingConvention": "off"
 			}
 		}
 	}
