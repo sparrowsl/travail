@@ -3,9 +3,10 @@
 	import { browser } from "$app/environment";
 	import { navigating } from "$app/stores";
 	import { fade, scale } from "svelte/transition";
+	import { Toaster } from "svelte-sonner";
 	import "@unocss/reset/tailwind.css";
 	import "uno.css";
-	import Navigation from "./Navigation.svelte";
+	import Navigation from "./(main)/Navigation.svelte";
 
 	onNavigate(async (navigation) => {
 		// @ts-ignore
@@ -31,5 +32,5 @@
 	</div>
 {/if}
 
-<Navigation />
+<Toaster position="top-right" closeButton richColors />
 <slot />

@@ -61,7 +61,11 @@ Adjust the values according to your environment.
 ### 4. Setup database tables
 
 ```bash
-npm run db:push
+npm run db:setup
+
+# > A default admin account will be created with the credentials
+# > Email: admin@mail.com
+# > Password: password
 ```
 
 run `npm run db:studio` to add data manually in the database _(use for creating new admin only)_

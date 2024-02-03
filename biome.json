@@ -43,7 +43,7 @@
 				"useBlockStatements": "warn",
 				"useCollapsedElseIf": "warn",
 				"useFragmentSyntax": "warn",
-				"useNamingConvention": "warn"
+				"useNamingConvention": "off"
 			},
 			"complexity": {
 				"recommended": true,
