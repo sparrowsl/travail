@@ -32,9 +32,7 @@ export const actions = {
 		try {
 			property = propertySchema.parse(formData);
 		} catch (/** @type {any} */ e) {
-			const { fieldErrors: errors } = /** @type {import("zod").ZodError} */ (
-				e
-			).flatten();
+			const { fieldErrors: errors } = /** @type {import("zod").ZodError} */ (e).flatten();
 
 			return { errors: Object.values(errors).flat() };
 		}
