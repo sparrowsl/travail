@@ -1,5 +1,5 @@
 import db from "$lib/server/db.js";
-import { propertiesTable } from "$lib/server/schemas.js";
+import { propertiesTable } from "$lib/server/models.js";
 import { desc } from "drizzle-orm";
 
 /** @type {import('./$types').PageServerLoad} */

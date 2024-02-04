@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { nanoid } from "nanoid";
+import dayjs from "dayjs";
 import sharp from "sharp";
 
 /**
@@ -16,11 +16,15 @@ export async function uploadfile(file) {
 		fs.mkdirSync(uploadPath);
 	}
 
-	const filePath = `${nanoid()}.webp`;
+	const filePath = `${dayjs().format("YYYYMMDDHHmmss")}.webp`;
 
-	await sharp(await file.arrayBuffer())
-		// .resize({ height: 250, width: 300 })
-		.toFile(uploadPath + filePath);
+	try {
+		await sharp(await file.arrayBuffer())
+			// .resize({ height: 250, width: 300 })
+			.toFile(uploadPath + filePath);
+	} catch (_) {
+		_;
+	}
 
 	return filePath;
 }

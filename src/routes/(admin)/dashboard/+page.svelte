@@ -5,7 +5,6 @@
 	import TotalRevenue from "./TotalRevenue.svelte";
 	import { charts } from "./charts.js";
 
-	/** @type {import("./$types").PageServerData} */
 	export let data;
 </script>
 
@@ -21,6 +20,7 @@
 <!-- Total Revenue and referrals graph -->
 <div class="flex flex-col mb-7 gap-2 lg:flex-row">
 	<TotalRevenue />
+	<!-- Referrals or Top agents / Performing agents -->
 	<PropertyReferrals />
 </div>
 
@@ -32,6 +32,8 @@
 		<div class="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
 			{#each properties as property (property.id)}
 				<PropertyCard {property} />
+			{:else}
+				<p class="px-3 text-gray-700 italic">No properties added yet</p>
 			{/each}
 		</div>
 	{/await}

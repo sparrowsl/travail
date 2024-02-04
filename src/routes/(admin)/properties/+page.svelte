@@ -8,7 +8,10 @@
 <article>
 	<div class="flex items-center justify-between mb-4">
 		<h1 class="text-xl font-semibold text-gray-700">All Properties</h1>
-		<a href="/properties/create" class="text-sm flex items-center gap-2 bg-accent font-bold rounded p-2">
+		<a
+			href="/properties/new"
+			class="text-sm flex items-center gap-2 bg-accent font-bold rounded p-2"
+		>
 			<i class="i-mdi:plus text-2xl" />
 			<span>Add Property</span>
 		</a>

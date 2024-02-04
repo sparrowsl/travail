@@ -1,9 +1,14 @@
+import db from "$lib/server/db.js";
+import { propertiesTable } from "$lib/server/models.js";
+import { desc } from "drizzle-orm";
+
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ fetch }) {
+export async function load() {
 	async function getProperties() {
-		const res = await fetch("/api/v1/properties");
-		const { properties } = await res.json();
-		return properties;
+		return db.query.propertiesTable.findMany({
+			limit: 5,
+			orderBy: desc(propertiesTable.createdAt),
+		});
 	}
 
 	return {

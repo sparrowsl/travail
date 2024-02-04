@@ -31,6 +31,7 @@ export default defineConfig({
 			brand: {
 				primary: "#0C2D57", // #0A1D56
 				secondary: "#FF6868",
+				accent: "#0C2D57",
 			},
 		},
 	},

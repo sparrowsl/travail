@@ -1,6 +1,6 @@
 import { JWT_SECRET_KEY } from "$env/static/private";
 import db from "$lib/server/db.js";
-import { usersTable } from "$lib/server/schemas.js";
+import { usersTable } from "$lib/server/models.js";
 import { eq } from "drizzle-orm";
 import jwt from "jsonwebtoken";
 
@@ -12,11 +12,11 @@ export async function handle({ event, resolve }) {
 		return await resolve(event);
 	}
 
-	/** @type {Object<any,any>} */
+	/** @type {Object<String,any>} */
 	let verifiedPayload;
 	try {
 		verifiedPayload = jwt.verify(token, JWT_SECRET_KEY);
-	} catch (_error) {
+	} catch (_) {
 		return await resolve(event);
 	}
 

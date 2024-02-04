@@ -1,5 +1,5 @@
 <script>
-	import Header from "$lib/components/Header.svelte";
+	import Header from "./Header.svelte";
 	import Sidebar from "$lib/components/Sidebar.svelte";
 </script>
 

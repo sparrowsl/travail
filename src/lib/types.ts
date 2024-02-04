@@ -1,22 +1,29 @@
 export interface Property {
 	id?: string;
-	title?: string;
+	title: string;
 	description: string;
-	type: string | number;
+	type: string;
 	location: string;
-	photo: string;
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	photo?: string | File | any | null;
 	price: number;
-	userId?: string | null;
-	agentId?: string | null;
 	user?: User;
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	userId?: string | null | any;
+	createdAt?: Date | string | null;
+	updatedAt?: Date | string | null;
 }
 
 export interface User {
 	id?: string;
 	name: string;
+	username?: string;
 	email: string;
-	avatar?: string | "https://robohash.org/johndoe" | null;
-	password?: string;
-	dateJoined?: Date | string | null;
+	contact: string | null;
+	avatar: string | null;
+	role?: string | null;
+	password: string;
 	properties?: Property[];
+	createdAt?: Date | string | null;
+	updatedAt?: Date | string | null;
 }

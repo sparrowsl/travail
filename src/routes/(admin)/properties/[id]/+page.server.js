@@ -1,5 +1,5 @@
 import db from "$lib/server/db.js";
-import { propertiesTable } from "$lib/server/schemas.js";
+import { propertiesTable } from "$lib/server/models.js";
 import { redirect } from "@sveltejs/kit";
 import { eq } from "drizzle-orm";
 

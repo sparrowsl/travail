@@ -1,7 +1,7 @@
 import { JWT_SECRET_KEY } from "$env/static/private";
 import db from "$lib/server/db.js";
-import { usersTable } from "$lib/server/schemas.js";
-import { registerSchema } from "$lib/utils/schemas.js";
+import { usersTable } from "$lib/server/models.js";
+import { registerSchema } from "$lib/utils/validation.js";
 import { redirect } from "@sveltejs/kit";
 import argon2 from "argon2";
 import { eq } from "drizzle-orm";

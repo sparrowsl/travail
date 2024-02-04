@@ -6,6 +6,13 @@ export async function load() {
 		columns: {
 			password: false,
 		},
+		with: {
+			properties: {
+				columns: {
+					id: true,
+				},
+			},
+		},
 	});
 
 	return { agents };

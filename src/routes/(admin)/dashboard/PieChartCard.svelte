@@ -11,10 +11,7 @@
 	let element;
 	onMount(() => {
 		Chart.register(DoughnutController, ArcElement);
-		new Chart(element, {
-			type: "doughnut",
-			data,
-		});
+		new Chart(element, { type: "doughnut", data });
 	});
 </script>
 
@@ -25,11 +22,5 @@
 	</div>
 
 	<!-- Chart plot -->
-	<canvas bind:this={element} />
+	<canvas bind:this={element} class="h-[80px_!important]" />
 </div>
-
-<style>
-	canvas {
-		height: 90px !important;
-	}
-</style>

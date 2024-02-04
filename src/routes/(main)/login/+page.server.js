@@ -1,7 +1,7 @@
 import { JWT_SECRET_KEY } from "$env/static/private";
 import db from "$lib/server/db.js";
-import { usersTable } from "$lib/server/schemas.js";
-import { loginSchema } from "$lib/utils/schemas.js";
+import { usersTable } from "$lib/server/models.js";
+import { loginSchema } from "$lib/utils/validation.js";
 import { redirect } from "@sveltejs/kit";
 import argon2 from "argon2";
 import { eq } from "drizzle-orm";
@@ -23,12 +23,9 @@ export const actions = {
 		try {
 			result = loginSchema.parse(formData);
 		} catch (/** @type {any} */ e) {
-			const { fieldErrors: errors } = e.flatten();
+			const { fieldErrors: errors } = /**@type {import("zod").ZodError} */ (e).flatten();
 
-			return {
-				/**@type {String[]} */
-				errors: Object.values(errors).flat(),
-			};
+			return { errors: Object.values(errors).flat() };
 		}
 
 		const user = await db.query.usersTable.findFirst({
@@ -39,8 +36,8 @@ export const actions = {
 			return { errors: { message: "Invalid email and password!! try again" } };
 		}
 
-		const { password: _p, avatar: _a, joined: _j, ...rest } = user;
-		const payload = jwt.sign(rest, JWT_SECRET_KEY);
+		const { email, id, username, role, ..._ } = user;
+		const payload = jwt.sign({ email, id, username, role }, JWT_SECRET_KEY);
 
 		cookies.set("token", payload, {
 			path: "/",

@@ -6,7 +6,6 @@
 	import { Toaster } from "svelte-sonner";
 	import "@unocss/reset/tailwind.css";
 	import "uno.css";
-	import Navigation from "./(main)/Navigation.svelte";
 
 	onNavigate(async (navigation) => {
 		// @ts-ignore

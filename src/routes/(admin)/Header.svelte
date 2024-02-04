@@ -1,9 +1,8 @@
 <script>
 	import { page } from "$app/stores";
-	import Image from "./Image.svelte";
+	import Image from "$lib/components/Image.svelte";
 
-	// prettier-ignore
-	$: ({data: { user }} = $page);
+	$: ({ user } = $page.data);
 </script>
 
 <header class="bg-white flex p-3 items-center justify-between">
@@ -12,7 +11,10 @@
 	</button>
 
 	<figure class="flex font-ptsans ml-auto gap-2 justify-end items-center">
-		<Image src={user.avatar || `https://robohash.org/${user.name}`} class="w-12" />
+		<Image
+			src={user.avatar || `https://robohash.org/${user.name}`}
+			class="w-12"
+		/>
 		<figcaption class="flex flex-col">
 			<h3 class="text-gray-700">{user.name}</h3>
 			<p class="text-(sm gray-500)">{user.email}</p>

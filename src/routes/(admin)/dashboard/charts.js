@@ -36,12 +36,12 @@ export const charts = [
 		},
 	},
 	{
-		title: "Properties for Cities",
-		value: 555,
+		title: "Total Agents",
+		value: 55,
 		data: {
 			datasets: [
 				{
-					data: [50, 555],
+					data: [10, 55],
 					backgroundColor: ["rgba(107, 114, 128, 0.2)", "rgba(0, 0, 255, 0.6)"],
 				},
 			],

@@ -1,8 +1,7 @@
 <script>
-	export let src = "";
+	export let src = /** @type {string|undefined|null} */ ("");
 	export let alt = "";
-	/** @type {"lazy"|"eager"} */
-	export let loading = "lazy";
+	export let loading = /** @type {"lazy"|"eager"} */ ("lazy");
 </script>
 
 <img {src} {alt} class={$$props.class} {loading} />

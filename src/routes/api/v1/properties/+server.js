@@ -1,5 +1,5 @@
 import db from "$lib/server/db.js";
-import { propertiesTable } from "$lib/server/schemas.js";
+import { propertiesTable } from "$lib/server/models.js";
 import { json } from "@sveltejs/kit";
 import { desc } from "drizzle-orm";
 

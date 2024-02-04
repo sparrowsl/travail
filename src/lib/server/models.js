@@ -6,30 +6,17 @@ const generateId = () => crypto.randomUUID().replaceAll("-", "_");
 export const usersTable = sqliteTable("users", {
 	id: text("id").primaryKey().notNull().unique().$defaultFn(generateId),
 	name: text("name").notNull(),
+	username: text("username").notNull().unique(),
 	email: text("email").notNull().unique(),
-	avatar: text("avatar").default("https://robohash.org/johndoe"),
-	password: text("password").notNull(),
-	joined: text("joined").default(sql`CURRENT_TIMESTAMP`),
-});
-
-// export const usersRelations = relations(usersTable, ({ many }) => ({
-// 	properties: many(propertiesTable),
-// }));
-
-export const agentsTable = sqliteTable("agents", {
-	id: text("id").primaryKey().notNull().unique().$defaultFn(generateId),
-	name: text("name"),
-	username: text("name").notNull().unique(),
-	email: text("email").unique(),
 	contact: text("contact"),
+	role: text("role").default("Admin"),
 	avatar: text("avatar").default("https://robohash.org/johndoe"),
-	role: text("role").default("Agent"),
 	password: text("password").notNull(),
-	// properties:
-	joined: text("joined").default(sql`CURRENT_TIMESTAMP`),
+	createdAt: text("created_at").default(sql`CURRENT_TIMESTAMP`),
+	updatedAt: text("updated_at").default(sql`CURRENT_TIMESTAMP`),
 });
 
-export const agentsRelations = relations(agentsTable, ({ many }) => ({
+export const usersRelations = relations(usersTable, ({ many }) => ({
 	properties: many(propertiesTable),
 }));
 
@@ -41,16 +28,17 @@ export const propertiesTable = sqliteTable("properties", {
 	location: text("location").notNull(),
 	photo: text("photo").notNull(),
 	price: integer("price").notNull(),
-	dateAdded: text("added").default(sql`CURRENT_TIMESTAMP`),
+	createdAt: text("created_at").default(sql`CURRENT_TIMESTAMP`),
 	updatedAt: text("updated_at").default(sql`CURRENT_TIMESTAMP`),
-	agentId: text("agent_id")
+	userId: text("agent_id") // TODO: change agent_id to user_id
 		.notNull()
-		.references(() => agentsTable.id, { onDelete: "set null" }),
+		.references(() => usersTable.id, { onDelete: "set null" }),
 });
-
 export const propertiesRelations = relations(propertiesTable, ({ one }) => ({
-	agent: one(agentsTable, {
-		fields: [propertiesTable.agentId],
-		references: [agentsTable.id],
+	agent: one(usersTable, {
+		fields: [propertiesTable.userId],
+		references: [usersTable.id],
 	}),
 }));
+
+// TODO: add property types table
