@@ -35,7 +35,9 @@ export const registerSchema = z.object({
 	password: z.string().min(4, { message: "password must be 4 or more letters" }).trim(),
 });
 
-export const loginSchema = z.object({
-	email: z.string().email().min(5, { message: "email must be 5 or more letters" }),
-	password: z.string().min(4, { message: "password must be 4 or more letters" }).trim(),
-});
+export const loginSchema = z
+	.object({
+		email: z.string().email().min(5, { message: "email must be 5 or more letters" }),
+		password: z.string().min(4, { message: "password must be 4 or more letters" }).trim(),
+	})
+	.strict();

@@ -20,7 +20,9 @@
 	use:enhance={() => {
 		return async ({ result }) => {
 			if (result.type === "success" && result?.data) {
-				for (const error of /** @type {String[]} */ (result?.data?.errors)) {
+				for (const error of /** @type {String[]} */ (
+					result?.data?.errors
+				)) {
 					toast.error(error);
 				}
 			}
