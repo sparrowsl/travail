@@ -1,7 +1,7 @@
 <script>
-	import AgentCard from "./AgentCard.svelte";
+import AgentCard from "./AgentCard.svelte";
 
-	export let data;
+export let data;
 </script>
 
 <div class="flex items-center justify-between mb-4">

@@ -1,22 +1,22 @@
 <script>
-	import { page } from "$app/stores";
-	import { enhance } from "$app/forms";
-	import Button from "$lib/components/Button.svelte";
-	import Input from "$lib/components/Input.svelte";
-	import SelectField from "$lib/components/SelectField.svelte";
-	import Textarea from "$lib/components/Textarea.svelte";
-	import { propertyTypes } from "$lib/utils/utils.js";
-	import { toast } from "svelte-sonner";
+import { page } from "$app/stores";
+import { enhance } from "$app/forms";
+import Button from "$lib/components/Button.svelte";
+import Input from "$lib/components/Input.svelte";
+import SelectField from "$lib/components/SelectField.svelte";
+import Textarea from "$lib/components/Textarea.svelte";
+import { propertyTypes } from "$lib/utils/utils.js";
+import { toast } from "svelte-sonner";
 
-	export let form;
+export let form;
 
-	$: if (form?.errors) {
+$: if (form?.errors) {
+	// @ts-ignore
+	toast.error(form?.errors?.message, {
 		// @ts-ignore
-		toast.error(form?.errors?.message, {
-			// @ts-ignore
-			description: form?.errors[0],
-		});
-	}
+		description: form?.errors[0],
+	});
+}
 </script>
 
 <h1 class="font-semibold text-xl text-gray-700">Add a new Agent</h1>

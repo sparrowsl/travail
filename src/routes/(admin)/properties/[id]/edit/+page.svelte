@@ -1,17 +1,17 @@
 <script>
-	import { page } from "$app/stores";
-	import { applyAction, enhance } from "$app/forms";
-	import { goto } from "$app/navigation";
-	import { toast } from "svelte-sonner";
-	import Button from "$lib/components/Button.svelte";
-	import Input from "$lib/components/Input.svelte";
-	import SelectField from "$lib/components/SelectField.svelte";
-	import Textarea from "$lib/components/Textarea.svelte";
-	import { propertyTypes } from "$lib/utils/utils.js";
+import { page } from "$app/stores";
+import { applyAction, enhance } from "$app/forms";
+import { goto } from "$app/navigation";
+import { toast } from "svelte-sonner";
+import Button from "$lib/components/Button.svelte";
+import Input from "$lib/components/Input.svelte";
+import SelectField from "$lib/components/SelectField.svelte";
+import Textarea from "$lib/components/Textarea.svelte";
+import { propertyTypes } from "$lib/utils/utils.js";
 
-	/** @type {import("./$types").PageServerData} */
-	export let data;
-	const { property } = data;
+/** @type {import("./$types").PageServerData} */
+export let data;
+const { property } = data;
 </script>
 
 <h1 class="text-xl font-semibold text-gray-700">Update Property Details</h1>

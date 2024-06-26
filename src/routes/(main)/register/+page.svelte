@@ -1,10 +1,10 @@
 <script>
-	import Input from "$lib/components/Input.svelte";
-	import Button from "$lib/components/Button.svelte";
-	import { enhance } from "$app/forms";
+import Input from "$lib/components/Input.svelte";
+import Button from "$lib/components/Button.svelte";
+import { enhance } from "$app/forms";
 
-	/** @type {import("./$types").ActionData}*/
-	export let form;
+/** @type {import("./$types").ActionData}*/
+export let form;
 </script>
 
 <main class="bg-gray-200">

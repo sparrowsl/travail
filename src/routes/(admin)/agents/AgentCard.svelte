@@ -1,8 +1,8 @@
 <script>
-	import Image from "$lib/components/Image.svelte";
+import Image from "$lib/components/Image.svelte";
 
-	/** @type {import("$lib/types").User} */
-	export let agent;
+/** @type {import("$lib/types").User} */
+export let agent;
 </script>
 
 <figure class="bg-white rounded flex max-w-4xl py-4 gap-5">

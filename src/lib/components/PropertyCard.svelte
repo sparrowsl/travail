@@ -1,8 +1,8 @@
 <script>
-	import Image from "$lib/components/Image.svelte";
+import Image from "$lib/components/Image.svelte";
 
-	/** @type {import("$lib/types.js").Property} */
-	export let property;
+/** @type {import("$lib/types.js").Property} */
+export let property;
 </script>
 
 <a href="/properties/{property.id}">

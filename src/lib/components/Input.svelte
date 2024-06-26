@@ -1,15 +1,15 @@
 <script>
-	// @ts-nocheck
-	export let type = "text";
-	export let disabled = false;
-	export let required = true;
-	export let value = /** @type {Number|string} */ ("");
-	export let placeholder = "";
-	export let name = "";
-	export let id = "";
-	export let accept = "";
-	export let labelClass = "block mb-2 text-gray-700 block";
-	export let label = "";
+// @ts-nocheck
+export const type = "text";
+export const disabled = false;
+export const required = true;
+export const value = /** @type {Number|string} */ ("");
+export const placeholder = "";
+export const name = "";
+export const id = "";
+export const accept = "";
+export const labelClass = "block mb-2 text-gray-700 block";
+export const label = "";
 </script>
 
 <label for={id || name}>

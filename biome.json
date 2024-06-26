@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
 	"organizeImports": {
 		"enabled": true
 	},
@@ -48,23 +48,13 @@
 			"complexity": {
 				"recommended": true,
 				"noVoid": "warn",
-				"useSimplifiedLogicExpression": "warn"
+				"useSimplifiedLogicExpression": "warn",
+				"noUselessTernary": "warn"
 			},
 			"nursery": {
 				"recommended": true,
 				"noDuplicateJsonKeys": "error",
-				"noEmptyBlockStatements": "error",
-				"noUnusedImports": "warn",
-				"noUnusedPrivateClassMembers": "error",
-				"noUselessLoneBlockStatements": "error",
-				"useAwait": "warn",
-				"useImportRestrictions": "warn",
-				"noGlobalAssign": "error",
-				"noGlobalEval": "error",
-				"noInvalidUseBeforeDeclaration": "error",
-				"noUselessTernary": "warn",
-				"useForOf": "warn",
-				"useFilenamingConvention": "off"
+				"useImportRestrictions": "warn"
 			}
 		}
 	}

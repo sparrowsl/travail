@@ -1,11 +1,11 @@
 <script>
-	const referrals = [
-		{ name: "Social Media", percentage: 64 },
-		{ name: "Marketplaces", percentage: 40 },
-		{ name: "Websites", percentage: 50 },
-		{ name: "Digital Ads", percentage: 80 },
-		{ name: "Others", percentage: 15 },
-	];
+const referrals = [
+	{ name: "Social Media", percentage: 64 },
+	{ name: "Marketplaces", percentage: 40 },
+	{ name: "Websites", percentage: 50 },
+	{ name: "Digital Ads", percentage: 80 },
+	{ name: "Others", percentage: 15 },
+];
 </script>
 
 <section class="p-5 flex flex-col basis-full lg:max-w-md justify-evenly bg-white rounded-md">

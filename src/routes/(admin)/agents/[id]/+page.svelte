@@ -1,9 +1,9 @@
 <script>
-	import Image from "$lib/components/Image.svelte";
-	import PropertyCard from "$lib/components/PropertyCard.svelte";
+import Image from "$lib/components/Image.svelte";
+import PropertyCard from "$lib/components/PropertyCard.svelte";
 
-	export let data;
-	const { agent } = data;
+export let data;
+const { agent } = data;
 </script>
 
 <h1 class="font-semibold text-xl text-gray-700">Agent Profile</h1>

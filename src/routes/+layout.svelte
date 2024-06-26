@@ -1,24 +1,24 @@
 <script>
-	import { onNavigate } from "$app/navigation";
-	import { browser } from "$app/environment";
-	import { navigating } from "$app/stores";
-	import { fade, scale } from "svelte/transition";
-	import { Toaster } from "svelte-sonner";
-	import "@unocss/reset/tailwind.css";
-	import "uno.css";
+import { onNavigate } from "$app/navigation";
+import { browser } from "$app/environment";
+import { navigating } from "$app/stores";
+import { fade, scale } from "svelte/transition";
+import { Toaster } from "svelte-sonner";
+import "@unocss/reset/tailwind.css";
+import "uno.css";
 
-	onNavigate(async (navigation) => {
+onNavigate(async (navigation) => {
+	// @ts-ignore
+	if (!document.startViewTransition) return;
+
+	return new Promise((oldStateCaptureResolve) => {
 		// @ts-ignore
-		if (!document.startViewTransition) return;
-
-		return new Promise((oldStateCaptureResolve) => {
-			// @ts-ignore
-			document.startViewTransition(async () => {
-				oldStateCaptureResolve();
-				await navigation.complete;
-			});
+		document.startViewTransition(async () => {
+			oldStateCaptureResolve();
+			await navigation.complete;
 		});
 	});
+});
 </script>
 
 {#if $navigating && browser}

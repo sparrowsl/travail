@@ -1,8 +1,8 @@
 <script>
-	import PropertyCard from "$lib/components/PropertyCard.svelte";
+import PropertyCard from "$lib/components/PropertyCard.svelte";
 
-	/** @type {import("./$types").PageData} */
-	export let data;
+/** @type {import("./$types").PageData} */
+export let data;
 </script>
 
 <article>

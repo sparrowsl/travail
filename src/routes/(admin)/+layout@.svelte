@@ -1,6 +1,6 @@
 <script>
-	import Header from "./Header.svelte";
-	import Sidebar from "$lib/components/Sidebar.svelte";
+import Header from "./Header.svelte";
+import Sidebar from "$lib/components/Sidebar.svelte";
 </script>
 
 <div class="min-h-screen bg-gray-200 grid grid-cols-[max-content_1fr]">

@@ -1,8 +1,8 @@
 <script>
-	import { page } from "$app/stores";
-	import Image from "$lib/components/Image.svelte";
+import { page } from "$app/stores";
+import Image from "$lib/components/Image.svelte";
 
-	$: ({ user } = $page.data);
+$: ({ user } = $page.data);
 </script>
 
 <header class="bg-white flex p-3 items-center justify-between">

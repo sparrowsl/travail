@@ -1,11 +1,11 @@
 <script>
-	import PropertyCard from "$lib/components/PropertyCard.svelte";
-	import PieChartCard from "./PieChartCard.svelte";
-	import PropertyReferrals from "./PropertyReferrals.svelte";
-	import TotalRevenue from "./TotalRevenue.svelte";
-	import { charts } from "./charts.js";
+import PropertyCard from "$lib/components/PropertyCard.svelte";
+import PieChartCard from "./PieChartCard.svelte";
+import PropertyReferrals from "./PropertyReferrals.svelte";
+import TotalRevenue from "./TotalRevenue.svelte";
+import { charts } from "./charts.js";
 
-	export let data;
+export let data;
 </script>
 
 <h1 class="font-semibold text-xl text-gray-700">Dashboard</h1>

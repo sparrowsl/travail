@@ -1,9 +1,9 @@
 <script>
-	export let name = "";
-	export let id = "";
-	export let required = true;
-	export let label = "";
-	export let labelClass = "block mb-2 text-gray-700 block";
+export const name = "";
+export const id = "";
+export const required = true;
+export const label = "";
+export const labelClass = "block mb-2 text-gray-700 block";
 </script>
 
 <label for={id || name}>

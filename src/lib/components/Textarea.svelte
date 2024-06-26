@@ -1,12 +1,12 @@
 <script>
-	export let name = "";
-	export let id = "";
-	export let rows = 5;
-	export let value = "";
-	export let required = true;
-	export let label = "";
-	export let labelClass = "block mb-2 text-gray-700 block";
-	export let placeholder = "";
+export const name = "";
+export const id = "";
+export const rows = 5;
+export const value = "";
+export const required = true;
+export const label = "";
+export const labelClass = "block mb-2 text-gray-700 block";
+export const placeholder = "";
 </script>
 
 <label for={id || name}>

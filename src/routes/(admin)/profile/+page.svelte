@@ -1,10 +1,10 @@
 <script>
-	import Button from "$lib/components/Button.svelte";
-	import Image from "$lib/components/Image.svelte";
-	import PropertyCard from "$lib/components/PropertyCard.svelte";
+import Button from "$lib/components/Button.svelte";
+import Image from "$lib/components/Image.svelte";
+import PropertyCard from "$lib/components/PropertyCard.svelte";
 
-	export let data;
-	const { currentUser } = data;
+export let data;
+const { currentUser } = data;
 </script>
 
 <h1 class="font-semibold text-xl text-gray-700">My Profile</h1>

@@ -1,6 +1,6 @@
 <script>
-	/** @type {"submit"|"button"|"reset"} */
-	export let type = "submit";
+/** @type {"submit"|"button"|"reset"} */
+export const type = "submit";
 </script>
 
 <button

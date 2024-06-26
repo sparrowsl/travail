@@ -1,17 +1,17 @@
 <script>
-	import { enhance } from "$app/forms";
-	import { page } from "$app/stores";
+import { enhance } from "$app/forms";
+import { page } from "$app/stores";
 
-	const links = [
-		{ name: "Dashboard", href: "/dashboard", icon: "i-mdi:view-dashboard" },
-		{ name: "Properties", href: "/properties", icon: "i-mdi:home-city" },
-		{ name: "Agents", href: "/agents", icon: "i-mdi:people" },
-		{ name: "Reviews", href: "/reviews", icon: "i-mdi:hexagram-outline" },
-		{ name: "Messages", href: "/messages", icon: "i-mdi:chat-outline" },
-		{ name: "Profile", href: "/profile", icon: "i-mdi:account-circle-outline" },
-	];
+const links = [
+	{ name: "Dashboard", href: "/dashboard", icon: "i-mdi:view-dashboard" },
+	{ name: "Properties", href: "/properties", icon: "i-mdi:home-city" },
+	{ name: "Agents", href: "/agents", icon: "i-mdi:people" },
+	{ name: "Reviews", href: "/reviews", icon: "i-mdi:hexagram-outline" },
+	{ name: "Messages", href: "/messages", icon: "i-mdi:chat-outline" },
+	{ name: "Profile", href: "/profile", icon: "i-mdi:account-circle-outline" },
+];
 
-	$: currentPath = `/${$page.url.pathname.split("/")[1]}`;
+$: currentPath = `/${$page.url.pathname.split("/")[1]}`;
 </script>
 
 <aside class="h-screen bg-white w-max">

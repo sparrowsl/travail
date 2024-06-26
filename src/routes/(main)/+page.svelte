@@ -1,7 +1,7 @@
 <script>
-	import PropertyCard from "$lib/components/PropertyCard.svelte";
+import PropertyCard from "$lib/components/PropertyCard.svelte";
 
-	export let data;
+export let data;
 </script>
 
 <main>

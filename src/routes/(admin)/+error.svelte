@@ -1,5 +1,5 @@
 <script>
-	import Image from "$lib/components/Image.svelte";
+import Image from "$lib/components/Image.svelte";
 </script>
 
 <div class="grid h-80vh place-content-center gap-1 font-ptsans">

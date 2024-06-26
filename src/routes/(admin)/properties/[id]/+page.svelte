@@ -1,14 +1,14 @@
 <script>
-	import { page } from "$app/stores";
-	import { enhance } from "$app/forms";
-	import Button from "$lib/components/Button.svelte";
-	import Image from "$lib/components/Image.svelte";
-	import Input from "$lib/components/Input.svelte";
+import { page } from "$app/stores";
+import { enhance } from "$app/forms";
+import Button from "$lib/components/Button.svelte";
+import Image from "$lib/components/Image.svelte";
+import Input from "$lib/components/Input.svelte";
 
-	/** @type {import("./$types").PageServerData} */
-	export let data;
-	const { property } = data;
-	$: ({ user } = $page.data);
+/** @type {import("./$types").PageServerData} */
+export let data;
+const { property } = data;
+$: ({ user } = $page.data);
 </script>
 
 <article class="rounded bg-white/70 max-w-3xl p-2">

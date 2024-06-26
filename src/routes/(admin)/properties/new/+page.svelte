@@ -1,13 +1,13 @@
 <script>
-	import { page } from "$app/stores";
-	import { goto } from "$app/navigation";
-	import { applyAction, enhance } from "$app/forms";
-	import { toast } from "svelte-sonner";
-	import Button from "$lib/components/Button.svelte";
-	import Input from "$lib/components/Input.svelte";
-	import SelectField from "$lib/components/SelectField.svelte";
-	import Textarea from "$lib/components/Textarea.svelte";
-	import { propertyTypes } from "$lib/utils/utils.js";
+import { page } from "$app/stores";
+import { goto } from "$app/navigation";
+import { applyAction, enhance } from "$app/forms";
+import { toast } from "svelte-sonner";
+import Button from "$lib/components/Button.svelte";
+import Input from "$lib/components/Input.svelte";
+import SelectField from "$lib/components/SelectField.svelte";
+import Textarea from "$lib/components/Textarea.svelte";
+import { propertyTypes } from "$lib/utils/utils.js";
 </script>
 
 <h1 class="font-semibold text-xl text-gray-700">Add new Property</h1>
